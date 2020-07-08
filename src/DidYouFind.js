@@ -43,10 +43,10 @@ const DidYouFind = (props) => {
                 <span>
                     Is this information what you were looking for?
                     <span className="didyoufind-label">
-                        <input  type="radio" id="yes" name="dyf" onClick={handleSelection}/>
-                        <label  htmlFor="yes">Yes</label>
-                        <input  type="radio" id="no" name="dyf" onClick={handleSelection}/>
-                        <label  htmlFor="no">No</label>
+                        <input type="radio" id="yes" name="dyf" onClick={handleSelection}/>
+                        <label htmlFor="yes">Yes</label>
+                        <input type="radio" id="no" name="dyf" onClick={handleSelection}/>
+                        <label htmlFor="no">No</label>
                     </span>
 
                 </span>

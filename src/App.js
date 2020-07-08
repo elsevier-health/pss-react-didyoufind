@@ -3,15 +3,12 @@ import DidYouFind from "./DidYouFind";
 
 const App = () => {
 
+    return (
+        <div>
+            <DidYouFind/>
+        </div>
+    );
 
+};
 
-        return (
-            <div>
-                <DidYouFind/>
-            </div>
-        );
-
-
-    };
-
-    export default App;
+export default App;

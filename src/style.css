@@ -9,4 +9,31 @@
     margin: 20px;
 }
 
+.didyoufind-feedback-btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: "Nexus Sans Pro";
+    font-size: 16pt;
+    color: #44C6F4;
+    cursor: pointer;
+}
 
+.didyoufind-modal {
+    font-family: "Nexus Sans Pro";
+    font-size: 30pt;
+    background-color: darkgray;
+    color: white;
+    border-radius: 5px;
+    max-width: 500px;
+    min-height: 300px;
+    position: relative;
+    margin-left: 120px;
+    padding: 20px;
+
+}
+
+.didyoufind-modal button {
+    color: #44C6F4;
+    background-color: darkgray;
+}
