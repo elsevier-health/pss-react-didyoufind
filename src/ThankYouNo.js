@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 
 
-const ThankYouNo = () => {
+const ThankYouNo = (props) => {
     //user clicked no
 
 
     const [ show, setShow ] = useState(false);
 
-    const showModal = () => {
+    const showModal = (event) => {
         setShow(true);
     };
 
-    const closeModal = () => {
+    const closeModal = (event) => {
         setShow(false);
+    };
+
+    const onSubmitFeedback = (event) => {
+        props.onFeedbackSubmit(event);
     };
 
     return (
@@ -24,7 +28,7 @@ const ThankYouNo = () => {
                     <input className="didyoufind-feedback-btn" type="button" value="What were you looking for?" onClick={ e => showModal(e)} />
                 </span>
             </span>
-            <Modal onClose={e => closeModal(e)} show={show}>
+            <Modal show={show} onClose={e => closeModal(e)} submitFeedback={e => onSubmitFeedback(e)} >
             </Modal>
         </div>
     );

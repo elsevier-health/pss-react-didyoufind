@@ -4,7 +4,7 @@ const Modal = (props) => {
 
     const submitFeedback = (event) => {
         //do axios stuff
-        props.onClose(event);
+        props.onSubmitFeedback(event);
     };
 
     const onClose = (event) => {

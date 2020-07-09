@@ -36,6 +36,9 @@ const DidYouFind = (props) => {
     // useEffect(() => {
     // });
 
+    const onFeedbackSubmit = (event) => {
+        setAnswer("yes");
+    };
 
     return (
         <div className="didyoufind">
@@ -52,7 +55,7 @@ const DidYouFind = (props) => {
                 </span>
                 : answer === "yes" ?
                     <ThankYou/>
-                    : <ThankYouNo/>
+                    : <ThankYouNo onSubmitFeedback={e => onFeedbackSubmit(e)}/>
 
             }
         </div>
