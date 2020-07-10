@@ -7,6 +7,9 @@ import ThankYouNo from "./ThankYouNo";
 const DidYouFind = (props) => {
 
     const [answer, setAnswer] = useState("");
+    const [ searchTerm, setSearchTerm ] = useState("");
+    const [ documentId, setDocumentId] = useState("");
+    const [ documentName, setDocumentName] = useState("");
 
     const handleSelection = (event) => {
         setAnswer(event.target.id);
@@ -15,6 +18,9 @@ const DidYouFind = (props) => {
         const docId = e.getAttribute("data-document-id");
         const docName = e.getAttribute("data-slug");
 
+        setSearchTerm(window.searchTerm);
+        setDocumentId(docId);
+        setDocumentName(docName);
 
         const data = {
             body: {
@@ -55,7 +61,7 @@ const DidYouFind = (props) => {
                 </span>
                 : answer === "yes" ?
                     <ThankYou/>
-                    : <ThankYouNo onSubmitFeedback={e => onFeedbackSubmit(e)}/>
+                    : <ThankYouNo searchTerm={searchTerm} documentId={documentId} documentName={documentName} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
 
             }
         </div>

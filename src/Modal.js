@@ -1,9 +1,26 @@
 import React from "react";
+import axios from "axios";
 
 const Modal = (props) => {
 
     const submitFeedback = (event) => {
-        //do axios stuff
+
+        const data = {
+            body: {
+                searchTerm: props.searchTerm,
+                documentId: props.documentId,
+                documentName: props.documentName,
+                feedback: "Hi I am a feed back"
+
+            }
+        };
+        axios.put("/search/feedback", data)
+            .then(response => {
+                console.log("success");
+            })
+            .catch((err) => {
+                console.log("More Bad shit happened");
+            });
         props.onSubmitFeedback(event);
     };
 

@@ -28,7 +28,7 @@ const ThankYouNo = (props) => {
                     <input className="didyoufind-feedback-btn" type="button" value="What were you looking for?" onClick={ e => showModal(e)} />
                 </span>
             </span>
-            <Modal show={show} onClose={e => closeModal(e)} submitFeedback={e => onSubmitFeedback(e)} >
+            <Modal searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
             </Modal>
         </div>
     );
