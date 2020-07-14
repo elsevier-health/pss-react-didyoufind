@@ -21,7 +21,7 @@ const ThankYouNo = (props) => {
     };
 
     return (
-        <div>
+        <div className="didYouFindNoSelector">
             <span>
                 Thank you
                 <span className="didyoufind-label">

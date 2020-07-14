@@ -47,15 +47,15 @@ const DidYouFind = (props) => {
     };
 
     return (
-        <div className="didyoufind">
+        <div className="didyoufind didYouFindSelector">
             {answer === "" ?
                 <span>
                     Is this information what you were looking for?
                     <span className="didyoufind-label" >
-                        <input className="didyoufind-element" type="radio" id="yes" name="dyf" onClick={handleSelection}/>
-                        <label className="didyoufind-element"  htmlFor="yes">Yes</label>
-                        <input className="didyoufind-element" type="radio" id="no" name="dyf" onClick={handleSelection}/>
-                        <label className="didyoufind-element"  htmlFor="no">No</label>
+                        <input className="didyoufind-element radioYesSelector" type="radio" id="yes" name="dyf" onClick={handleSelection}/>
+                        <label className="didyoufind-element labelYesSelector"   htmlFor="yes">Yes</label>
+                        <input className="didyoufind-element radioNoSelector" type="radio" id="no" name="dyf" onClick={handleSelection}/>
+                        <label className="didyoufind-element labelNoSelector"  htmlFor="no">No</label>
                     </span>
 
                 </span>

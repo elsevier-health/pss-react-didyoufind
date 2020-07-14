@@ -30,22 +30,22 @@ const Modal = (props) => {
 
     if (props.show) {
         return (
-            <div className="didyoufind-modal">
-                <div>
+            <div className="didyoufind-modal didYouFindModalSelector">
+                <div className="thanksForRespondingModalSelector">
                     Thanks for responding
                 </div>
-                <div>
+                <div className="tellUsMoreLabelSelector">
                     Please tell us more about what you were looking for
                 </div>
-                <div>
+                <div className="tellUsMoreTextAreaSelector">
                     <textarea/>
                 </div>
                 <div>
-                    <button onClick={e => {onClose(e)}}>
+                    <button className="didYouFindModalCloseBtnSelector" onClick={e => {onClose(e)}}>
                         Close
                     </button>
 
-                    <button onClick={e  => {submitFeedback(e)} }>
+                    <button className="didYouFindModalSubmitBtnSelector" onClick={e  => {submitFeedback(e)} }>
                         Submit
                     </button>
                 </div>
