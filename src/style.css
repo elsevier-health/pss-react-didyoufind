@@ -27,16 +27,22 @@
 
 .didyoufind-modal {
     font-family: "Nexus Sans Pro";
-    font-size: 30pt;
-    background-color: darkgray;
-    color: white;
+    background-color: #505050;
+    border: 1px solid rgba(80, 80, 80, .5);
+    color: #EEEEEE;
     border-radius: 5px;
-    max-width: 500px;
-    min-height: 300px;
+
     position: relative;
     margin-left: 120px;
     padding: 20px;
 
+}
+
+.thanksForRespondingModal {
+    font-size: 30pt;
+    font-family: "Nexus Sans Pro";
+    max-width: 500px;
+    min-height: 300px;
 }
 
 .didyoufind-modal button {
