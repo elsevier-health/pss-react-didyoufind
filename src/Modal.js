@@ -3,12 +3,10 @@ import axios from "axios";
 
 const Modal = (props) => {
 
-    const [x] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
 
 
     const submitFeedback = (event) => {
 
-        console.log("BOOM!!! " + x);
         const [e] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
         const feedback = e.value;
 
@@ -35,6 +33,22 @@ const Modal = (props) => {
         props.onClose(event);
     };
 
+    const onTextEntry = (e) => {
+        const txtArea = e.target;
+        // let paste = (e.clipboardData || window.clipboardData).getData('text');
+        const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtn");
+        const [overLimit] = document.getElementsByClassName("overTheCharacterLimitSelector");
+        if (txtArea.value.length > 25) {
+            const over = txtArea.value.length - 25;
+            overLimit.innerText = over + " over the limit";
+            submitBtn.disabled = true;
+        } else {
+            submitBtn.disabled = false;
+            overLimit.innerText = "";
+        }
+
+    };
+
     if (props.show) {
         return (
             <div className="didyoufind-modal didYouFindModalSelector">
@@ -45,14 +59,19 @@ const Modal = (props) => {
                     Please tell us more about what you were looking for
                 </div>
                 <div>
-                    <textarea maxLength="25" className="tellUsMoreTextArea tellUsMoreTextAreaSelector" />
+                    <textarea onPaste={onTextEntry} onKeyUp={onTextEntry} className="tellUsMoreTextArea tellUsMoreTextAreaSelector"/>
                 </div>
                 <div>
-                    <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => {onClose(e)}}>
+                    <span className="overTheCharacterLimitSelector"></span>
+                    <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => {
+                        onClose(e)
+                    }}>
                         Close
                     </button>
 
-                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector" onClick={e  => {submitFeedback(e)} }>
+                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector" onClick={e => {
+                        submitFeedback(e)
+                    }}>
                         Submit
                     </button>
                 </div>
