@@ -25,27 +25,75 @@
     cursor: pointer;
 }
 
+
 .didyoufind-modal {
-    font-family: "Nexus Sans Pro";
+    width: 700px;
+    max-width: 700px;
+    min-width: 700px;
+    height: 500px;
+    max-height: 500px;
+    min-height: 500px;
+    position: fixed;
+    left: 400px;
     background-color: #505050;
-    border: 1px solid rgba(80, 80, 80, .5);
-    color: #EEEEEE;
-    border-radius: 5px;
-
-    position: relative;
-    margin-left: 120px;
-    padding: 20px;
-
+    border: 20px solid rgba(80, 80, 80, .5);
+    background-clip:padding-box;
+    z-index: 1;
 }
 
 .thanksForRespondingModal {
-    font-size: 30pt;
     font-family: "Nexus Sans Pro";
-    max-width: 500px;
-    min-height: 300px;
+    font-size: 30pt;
+    font-weight: normal;
+    color: #EEEEEE;
+    padding: 10px;
 }
 
-.didyoufind-modal button {
+.tellUsMoreLabel {
+    font-family: "Nexus Sans Pro";
+    font-size: 16pt;
+    font-weight: normal;
+    color: #EEEEEE;
+    padding: 10px;
+}
+
+.tellUsMoreTextArea {
+    width: 640px;
+    min-width: 640px;
+    max-width: 640px;
+    height: 250px;
+    max-height: 250px;
+    min-height: 250px;
+    background-color: #F5F5F5;
+    color: #494949;
+    font-family: "Nexus Sans Pro";
+    font-size: 16pt;
+    font-weight: normal;
+}
+
+.didYouFindModalCloseBtn {
     color: #44C6F4;
-    background-color: darkgray;
+    font-family: "Nexus Sans Pro";
+    padding: 10px;
+    position: absolute;
+    right: 120px;
+    background: none!important;
+    border: none;
+}
+
+.didYouFindModalCloseBtn:hover {
+    color: #FF8200;
+}
+
+.didYouFindModalSubmitBtn {
+    background-color: #009ECE;
+    color: #FFFFFF;
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+    font-family: "Nexus Sans Pro";
+}
+
+.didYouFindModalSubmitBtn:hover {
+   color: #E9711C;
 }

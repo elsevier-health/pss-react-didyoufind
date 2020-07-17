@@ -3,8 +3,12 @@ import axios from "axios";
 
 const Modal = (props) => {
 
+    const [x] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+
+
     const submitFeedback = (event) => {
 
+        console.log("BOOM!!! " + x);
         const [e] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
         const feedback = e.value;
 
@@ -41,7 +45,7 @@ const Modal = (props) => {
                     Please tell us more about what you were looking for
                 </div>
                 <div>
-                    <textarea className="tellUsMoreTextArea tellUsMoreTextAreaSelector" />
+                    <textarea maxLength="25" className="tellUsMoreTextArea tellUsMoreTextAreaSelector" />
                 </div>
                 <div>
                     <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => {onClose(e)}}>
