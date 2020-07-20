@@ -7,11 +7,12 @@
 
 .didyoufind-label {
     color: #44C6F4;
-    margin-left: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-.didyoufind-element {
-    margin-left: 5px;
+.didyoufind-radio {
+    margin-left: 10px;
     margin-right: 5px;
 }
 

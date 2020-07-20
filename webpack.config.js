@@ -8,7 +8,7 @@ const config = {
     filename: "didyoufind.js",
     publicPath: "build/"
   },
-  mode: "development", //todo change to production when ready
+  mode: "production", //todo change to production when ready
   module: {
     rules: [
       {
