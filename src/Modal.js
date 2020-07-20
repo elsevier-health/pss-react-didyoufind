@@ -4,6 +4,7 @@ import axios from "axios";
 const Modal = (props) => {
 
 
+    const maxCharsInFeedback = 25;
 
     const submitFeedback = (event) => {
 
@@ -33,20 +34,27 @@ const Modal = (props) => {
         props.onClose(event);
     };
 
+    const onPasteEntry = (e) => {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        updateOverLimit(paste.length);
+    };
+
     const onTextEntry = (e) => {
         const txtArea = e.target;
-        // let paste = (e.clipboardData || window.clipboardData).getData('text');
+        updateOverLimit(txtArea.value.length);
+    };
+
+    const updateOverLimit = (feedbackLength) => {
         const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtn");
         const [overLimit] = document.getElementsByClassName("overTheCharacterLimitSelector");
-        if (txtArea.value.length > 25) {
-            const over = txtArea.value.length - 25;
+        if (feedbackLength > 25) {
+            const over = feedbackLength - maxCharsInFeedback;
             overLimit.innerText = over + " over the limit";
             submitBtn.disabled = true;
         } else {
             submitBtn.disabled = false;
             overLimit.innerText = "";
         }
-
     };
 
     if (props.show) {
@@ -59,7 +67,7 @@ const Modal = (props) => {
                     Please tell us more about what you were looking for
                 </div>
                 <div>
-                    <textarea onPaste={onTextEntry} onKeyUp={onTextEntry} className="tellUsMoreTextArea tellUsMoreTextAreaSelector"/>
+                    <textarea onPaste={onPasteEntry} onKeyUp={onTextEntry} className="tellUsMoreTextArea tellUsMoreTextAreaSelector"/>
                 </div>
                 <div>
                     <span className="overTheCharacterLimitSelector"></span>
