@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import ThankYou from "./ThankYou";
 import ThankYouNo from "./ThankYouNo";
@@ -35,12 +35,10 @@ const DidYouFind = (props) => {
                 console.log("success");
             })
             .catch((err) => {
-                console.log("Bad shit happened");
+                console.log("Error " + err);
             });
     };
 
-    // useEffect(() => {
-    // });
 
     const onFeedbackSubmit = (event) => {
         setAnswer("yes");

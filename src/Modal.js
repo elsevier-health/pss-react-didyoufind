@@ -22,10 +22,10 @@ const Modal = (props) => {
         };
         axios.put("/search/feedback", data)
             .then(response => {
-                console.log("success");
+                console.log("success"); //todo do we put a logger here. where does it log to?
             })
             .catch((err) => {
-                console.log("More Bad shit happened");
+                console.log("Error " + err);
             });
         props.onSubmitFeedback(event);
     };
