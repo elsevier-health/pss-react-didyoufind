@@ -1,16 +1,19 @@
 {
-  "name": "didyoufind",
-  "version": "1.0.0",
+  "name": "@pss/pss-didyoufind",
+  "version": "0.1.0",
   "description": "didyoufind",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
     "test": "jest"
   },
+  "files": [
+    "build"
+  ],
   "keywords": [],
-  "author": "jpeterson",
-  "license": "ISC",
+  "author": "Elsevier",
+  "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.10.4",
