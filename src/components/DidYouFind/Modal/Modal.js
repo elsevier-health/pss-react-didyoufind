@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import "./Modal.scss";
+
 
 const Modal = (props) => {
 
@@ -22,10 +24,14 @@ const Modal = (props) => {
         };
         axios.put("/search/feedback", data)
             .then(response => {
-                console.log("success"); //todo do we put a logger here. where does it log to?
+                if (console) {
+                    console.log("success"); //todo do we put a logger here. where does it log to?
+                }
             })
             .catch((err) => {
-                console.log("Error " + err);
+                if (console) {
+                    console.log("Error " + err);
+                }
             });
         props.onSubmitFeedback(event);
     };
@@ -71,16 +77,17 @@ const Modal = (props) => {
                 </div>
                 <div>
                     <span className="overTheCharacterLimitSelector"></span>
+
+                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button" onClick={e => {
+                        submitFeedback(e)
+                    }}>
+                        Submit
+                    </button>
+
                     <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => {
                         onClose(e)
                     }}>
                         Close
-                    </button>
-
-                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector" onClick={e => {
-                        submitFeedback(e)
-                    }}>
-                        Submit
                     </button>
                 </div>
             </div>

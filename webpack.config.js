@@ -12,16 +12,23 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+        loader: "file-loader"
+      },
+      {
         test: /\.js$/,
         use: "babel-loader",
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: [
-            "style-loader",
-            "css-loader"
-        ]
+        test: /(\.css|.scss)$/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader'
+        }]
       }
     ]
   },

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import ThankYou from "./ThankYou";
-import ThankYouNo from "./ThankYouNo";
+import ThankYou from "./ThankYou/ThankYou";
+import ThankYouNo from "./ThankYouNo/ThankYouNo";
+import "./DidYouFind.scss";
 
 
 const DidYouFind = (props) => {
@@ -32,10 +33,14 @@ const DidYouFind = (props) => {
         };
         axios.put("/search/outcome", data)
             .then(response => {
-                console.log("success");
+                if (console) {
+                    console.log("success");
+                }
             })
             .catch((err) => {
-                console.log("Error " + err);
+                if (console) {
+                    console.log("Error " + err);
+                }
             });
     };
 

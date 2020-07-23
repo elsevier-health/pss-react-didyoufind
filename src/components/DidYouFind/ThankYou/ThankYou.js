@@ -1,4 +1,5 @@
 import React from "react";
+import "./ThankYou.scss";
 
 
 const ThankYou = () => {
@@ -6,7 +7,7 @@ const ThankYou = () => {
     return (
         <div className="didYouFindYesSelector">
             <span>
-                Thanks for responding
+                Thanks for responding.
             </span>
         </div>
     );

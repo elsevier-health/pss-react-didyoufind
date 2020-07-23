@@ -1,0 +1,74 @@
+@import "../../../App";
+
+.didyoufind-modal {
+  width: 700px;
+  max-width: 700px;
+  min-width: 700px;
+  height: 500px;
+  max-height: 500px;
+  min-height: 500px;
+  position: fixed;
+  left: 400px;
+  background-color: $els-color-n9;
+  border: 20px solid rgba(80, 80, 80, .5);
+  background-clip:padding-box;
+  z-index: 1;
+}
+
+.thanksForRespondingModal {
+  font-family: $els-font-base;
+  font-size: $els-fs-h2;
+  color: $els-color-n1;
+  padding: 10px;
+}
+
+.tellUsMoreLabel {
+  font-family: $els-font-base;
+  font-size: 16pt;
+  font-weight: normal;
+  color: $els-color-n0;
+  background-color: $els-color-n9;
+  padding: 10px;
+}
+
+.tellUsMoreTextArea {
+  width: 640px;
+  min-width: 640px;
+  max-width: 640px;
+  height: 250px;
+  max-height: 250px;
+  min-height: 250px;
+  background-color: $els-color-n0;
+  color: $els-color-n10;
+  font-family: $els-font-base;
+  font-size: $els-fs-base;
+}
+
+.didYouFindModalCloseBtn {
+  font-size: $els-fs-base;
+  float: right;
+  color: $els-color-secondary-on-dark;
+  background: none!important;
+  border: none;
+  margin-right: 20px;
+  padding: 2px;
+}
+
+.didYouFindModalCloseBtn:hover {
+  color: $els-color-primary-on-dark;
+}
+
+.didYouFindModalSubmitBtn {
+  font-size: $els-fs-base;
+  float: right;
+  margin-right: 20px;
+}
+
+.didYouFindModalSubmitBtn:hover {
+  color: $els-color-primary;
+}
+
+.didYouFindModalSubmitBtn:disabled {
+  color: rgba(255, 255, 255, .4);
+  background-color: $els-color-n9;
+}
