@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
+import Modal from "../Modal/Modal";
+import "./ThankYouNo.scss";
 
 
 const ThankYouNo = (props) => {
@@ -23,7 +24,7 @@ const ThankYouNo = (props) => {
     return (
         <div className="didYouFindNoSelector">
             <span>
-                Thank you
+                Thank you.
                 <span className="didyoufind-label">
                     <input className="didyoufind-feedback-btn" type="button" value="What were you looking for?" onClick={ e => showModal(e)} />
                 </span>

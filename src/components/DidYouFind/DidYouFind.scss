@@ -1,0 +1,18 @@
+@import "../../App";
+
+.didyoufind {
+  font-family: $els-font-base;
+  font-size: $els-fs-base;
+  color: #FACF6E;
+}
+
+.didyoufind-label {
+  color: $els-color-secondary-on-dark;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.didyoufind-radio {
+  margin-left: 10px;
+  margin-right: 5px;
+}

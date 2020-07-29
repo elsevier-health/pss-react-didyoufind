@@ -1,5 +1,5 @@
 import React from "react";
-import DidYouFind from "./DidYouFind";
+import DidYouFind from "./components/DidYouFind/DidYouFind";
 
 const App = () => {
 
