@@ -6,7 +6,7 @@ import "./Modal.scss";
 const Modal = (props) => {
 
 
-    const maxCharsInFeedback = 25;
+    const maxCharsInFeedback = 2550;
 
     const submitFeedback = (event) => {
 
