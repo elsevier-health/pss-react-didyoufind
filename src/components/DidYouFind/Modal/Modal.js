@@ -14,13 +14,11 @@ const Modal = (props) => {
         const feedback = e.value;
 
         const data = {
-            body: {
-                searchTerm: props.searchTerm,
-                documentId: props.documentId,
-                documentName: props.documentName,
-                feedback: feedback
+            searchTerm: props.searchTerm,
+            documentId: props.documentId,
+            documentName: props.documentName,
+            feedback: feedback
 
-            }
         };
         axios.put("/search/feedback", data)
             .then(response => {

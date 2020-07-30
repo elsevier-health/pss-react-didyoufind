@@ -24,13 +24,12 @@ const DidYouFind = (props) => {
         setDocumentName(docName);
 
         const data = {
-            body: {
-                searchTerm: window.searchTerm,
-                documentName: docName,
-                documentId: docId,
-                outcome: event.target.id
-            }
+            searchTerm: window.searchTerm,
+            documentName: docName,
+            documentId: docId,
+            outcome: event.target.id
         };
+
         axios.put("/search/outcome", data)
             .then(response => {
                 if (console) {
