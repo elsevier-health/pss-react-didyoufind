@@ -1,4 +1,6 @@
 const path = require("path");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -16,9 +18,14 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /(\.s?css)$/,
+        test: /\.scss$/,
         use: [
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+            },
+          },
           'css-loader',
           'sass-loader'
         ]
@@ -28,5 +35,12 @@ module.exports = {
   output: {
     filename: 'didyoufind.js',
     path: path.resolve(__dirname, "build"),
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
+    // CleanWebpackPlugin() clears out the output directory
+    new CleanWebpackPlugin()
+  ]
 };
