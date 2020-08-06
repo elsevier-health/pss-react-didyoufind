@@ -51,7 +51,7 @@ const Modal = (props) => {
     const updateOverLimit = (feedbackLength) => {
         const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtn");
         const [overLimit] = document.getElementsByClassName("overTheCharacterLimitSelector");
-        if (feedbackLength > 25) {
+        if (feedbackLength > maxCharsInFeedback) {
             const over = feedbackLength - maxCharsInFeedback;
             overLimit.innerText = over + " over the limit";
             submitBtn.disabled = true;
