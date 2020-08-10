@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./Modal.scss";
+import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
 
 const Modal = (props) => {
@@ -51,7 +52,7 @@ const Modal = (props) => {
     const updateOverLimit = (feedbackLength) => {
         const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtn");
         const [overLimit] = document.getElementsByClassName("overTheCharacterLimitSelector");
-        if (feedbackLength > 25) {
+        if (feedbackLength > maxCharsInFeedback) {
             const over = feedbackLength - maxCharsInFeedback;
             overLimit.innerText = over + " over the limit";
             submitBtn.disabled = true;
@@ -66,26 +67,35 @@ const Modal = (props) => {
             <div className="didyoufind-modal didYouFindModalSelector">
                 <div className="thanksForRespondingModal thanksForRespondingModalSelector">
                     Thanks for responding
+                    <button className="didyoufind-modal-close-icon didYouFindCloseIconSelector" onClick={ e => { onClose(e) } } >
+                        <svg className="didyoufind-icon-x">
+                            <use href={"#icon-sprite-hmds_icon__close"} />
+                        </svg>
+                    </button>
                 </div>
                 <div className="tellUsMoreLabel tellUsMoreLabelSelector">
                     Please tell us more about what you were looking for
                 </div>
-                <div>
-                    <textarea onPaste={onPasteEntry} onKeyUp={onTextEntry} className="tellUsMoreTextArea tellUsMoreTextAreaSelector"/>
+                <div className="tellUsMoreTextAreaContainer">
+                    <textarea
+                        onPaste={onPasteEntry}
+                        onKeyUp={onTextEntry}
+                        className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
+                        rows="10" />
                 </div>
-                <div>
-                    <span className="overTheCharacterLimitSelector"></span>
+                <div className="didyoufind-modal-button-container">
+                    <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>
 
                     <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button" onClick={e => {
                         submitFeedback(e)
                     }}>
-                        Submit
+                        <span className="didYouFindModalSubmitBtn-label">
+                            Submit
+                        </span>
                     </button>
 
-                    <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => {
-                        onClose(e)
-                    }}>
-                        Close
+                    <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => { onClose(e) } }>
+                        <span className="didYouFindModalCloseBtn-label didYouFindModalCloseBtnLabelSelector">Close</span>
                     </button>
                 </div>
             </div>

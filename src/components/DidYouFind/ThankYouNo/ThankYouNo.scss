@@ -1,6 +1,10 @@
 @import "../../../App";
 
 button.didyoufind-feedback-btn {
+  @extend .u-els-anchorize;
+  @extend .c-els-link;
+  @extend .c-els-link--with-icon;
+
   margin-left: 16px;
   background: none!important;
   border: none;
@@ -9,10 +13,6 @@ button.didyoufind-feedback-btn {
   font-size: $els-fs-base;
   color: $els-color-secondary-on-dark;
   cursor: pointer;
-
-  @extend .u-els-anchorize;
-  @extend .c-els-link;
-  @extend .c-els-link--with-icon;
 
   &:hover {
     color: $els-color-primary-on-dark;

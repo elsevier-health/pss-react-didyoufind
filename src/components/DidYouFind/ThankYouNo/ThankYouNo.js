@@ -27,9 +27,9 @@ const ThankYouNo = (props) => {
                 Thank you.
                 <button className="didyoufind-feedback-btn" onClick={ e => showModal(e)}>
                     <svg className="didyoufind-icon-note">
-                        <use href={"#icon-sprite-hmds_icon__note"}></use>
+                        <use href={"#icon-sprite-hmds_icon__note"} />
                     </svg>
-                    <span className="didYouFindQuestionSelector">What were you looking for?</span>
+                    <span className="didYouFindQuestionButtonSelector">What were you looking for?</span>
                 </button>
             </span>
             <Modal searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
