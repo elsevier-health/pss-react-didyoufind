@@ -9,8 +9,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+        test: /\.(eot|woff|woff2|ttf)([\?]?.*)$/,
         loader: "file-loader"
+      },
+      {
+        test: /\.svg$/,
+        use: ['svg-sprite-loader', 'svgo-loader']
       },
       {
         test: /\.js$/,

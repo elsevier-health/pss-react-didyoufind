@@ -51,15 +51,40 @@ const DidYouFind = (props) => {
     return (
         <div className="didyoufind didYouFindSelector">
             {answer === "" ?
-                <span >
+                <span className="didYouFindMessageSelector" >
                     Is this information what you were looking for?
-                    <span className="didyoufind-label" >
-                        <input className="didyoufind-radio radioYesSelector" type="radio" id="yes" name="dyf" onClick={handleSelection}/>
-                        <label className="didyoufind-label labelYesSelector"   htmlFor="yes">Yes</label>
-                        <input className="didyoufind-radio radioNoSelector" type="radio" id="no" name="dyf" onClick={handleSelection}/>
-                        <label className="didyoufind-label labelNoSelector"  htmlFor="no">No</label>
+                    <span className="didyoufind-form" >
+                        <span className="didyoufind-form-field">
+                            <label>
+                                <input
+                                    className="radioYesSelector"
+                                    name="input-type-radio"
+                                    type="radio"
+                                    id="yes"
+                                    onClick={handleSelection} />
+                                <span className="didyoufind-label labelYesSelector">
+                                    <span className="didyoufind-label-switch" />
+                                    Yes
+                                </span>
+                            </label>
+                        </span>
                     </span>
-
+                    <span className="didyoufind-form" >
+                        <span className="didyoufind-form-field">
+                            <label>
+                                <input
+                                    className="radioNoSelector"
+                                    name="input-type-radio"
+                                    type="radio"
+                                    id="no"
+                                    onClick={handleSelection} />
+                                <span className="labelNoSelector didyoufind-label">
+                                    <span className="didyoufind-label-switch" />
+                                    No
+                                </span>
+                            </label>
+                        </span>
+                    </span>
                 </span>
                 : answer === "yes" ?
                     <ThankYou/>

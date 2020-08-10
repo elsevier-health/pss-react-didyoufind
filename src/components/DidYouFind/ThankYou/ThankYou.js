@@ -6,7 +6,7 @@ const ThankYou = () => {
     //User clicked yes
     return (
         <div className="didYouFindYesSelector">
-            <span>
+            <span className="didYouFindMessageSelector">
                 Thanks for responding.
             </span>
         </div>

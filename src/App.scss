@@ -31,6 +31,8 @@ $path-to-els-core-fonts: '~@els/els-styleguide-core/fonts';
 // ---- end style guide core ----
 
 @import '~@els/els-styleguide-button/scss/component.button';
+@import '~@els/els-styleguide-link/scss/component.link';
+@import '~@els/els-styleguide-form-field/scss/component.form-field';
 
 // font sizing with rem doesn't play nice with bootstrap. Overriding the font size variables.
 $els-fs-base: 16px;

@@ -1,6 +1,7 @@
 @import "../../../App";
 
-.didyoufind-feedback-btn {
+button.didyoufind-feedback-btn {
+  margin-left: 16px;
   background: none!important;
   border: none;
   padding: 0!important;
@@ -8,4 +9,24 @@
   font-size: $els-fs-base;
   color: $els-color-secondary-on-dark;
   cursor: pointer;
+
+  @extend .u-els-anchorize;
+  @extend .c-els-link;
+  @extend .c-els-link--with-icon;
+
+  &:hover {
+    color: $els-color-primary-on-dark;
+  }
+
+  svg {
+    @extend .c-els-link__icon;
+    @extend .o-els-icon-svg;
+    @extend .o-els-icon-svg--2x;
+    @extend .o-els-icon-svg--middle;
+  }
+
+  span {
+    @extend .c-els-link__text;
+    color: $els-color-secondary-on-dark;
+  }
 }
