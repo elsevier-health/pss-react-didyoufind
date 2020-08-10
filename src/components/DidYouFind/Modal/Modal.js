@@ -12,6 +12,12 @@ const Modal = (props) => {
     const submitFeedback = (event) => {
 
         const [e] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtnSelector");
+
+        if (submitBtn.disabled) {
+            return;
+        }
+
         const feedback = e.value;
 
         const data = {
@@ -77,11 +83,14 @@ const Modal = (props) => {
                     Please tell us more about what you were looking for
                 </div>
                 <div className="tellUsMoreTextAreaContainer">
-                    <textarea
-                        onPaste={onPasteEntry}
-                        onKeyUp={onTextEntry}
-                        className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
-                        rows="10" />
+                    <label className="tellUsMoreTextAreaLabel">
+                        <textarea
+                            onPaste={onPasteEntry}
+                            onKeyUp={onTextEntry}
+                            className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
+                            rows="10" />
+                    </label>
+
                 </div>
                 <div className="didyoufind-modal-button-container">
                     <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>

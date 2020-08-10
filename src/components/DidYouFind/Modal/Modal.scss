@@ -20,10 +20,16 @@
     font-family: $els-font-base;
     font-size: $els-fs-base;
     float: right;
-    padding-top: 6px;
+    padding: 6px 0 8px 0px;
+    border-bottom: 2px solid transparent;
 
     &:hover {
       color: $els-color-primary-on-dark;
+      border-color: $els-color-primary-on-dark;
+
+      svg {
+        color: $els-color-primary-on-dark;
+      }
     }
 
     svg {
@@ -82,8 +88,9 @@
       float: right;
 
       &:disabled {
-        color: rgba(255, 255, 255, .4);
-        background-color: $els-color-n9;
+        color: $els-color-n1;
+        background-color: $els-color-n7;
+        border: none;
       }
 
       span.didYouFindModalSubmitBtn-label {
@@ -107,18 +114,28 @@
   padding-left: 16px;
   padding-right: 16px;
 
-  .tellUsMoreTextArea {
-    @extend .u-els-width-1o1;
-    @extend .c-els-field__input;
+  .tellUsMoreTextAreaLabel {
+    @extend .c-els-field__label;
 
-    padding: 16px;
-    height: 250px;
-    max-height: 250px;
-    min-height: 250px;
-    background-color: $els-color-n0;
-    color: $els-color-n10;
-    font-family: $els-font-base;
-    font-size: $els-fs-base;
+    .tellUsMoreTextArea {
+      @extend .u-els-width-1o1;
+      @extend .c-els-field__input;
+
+      padding: 16px;
+      height: 125px;
+      max-height: 125px;
+      min-height: 125px;
+      background-color: $els-color-n0;
+      color: $els-color-n10;
+      font-family: $els-font-base;
+      font-size: $els-fs-base;
+      border-bottom-color: $els-color-n10;
+
+      &:focus {
+        outline: none;
+      }
+    }
   }
+
 }
 
