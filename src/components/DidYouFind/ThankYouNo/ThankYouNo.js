@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../Modal/Modal";
 import "./ThankYouNo.scss";
-
+import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
 const ThankYouNo = (props) => {
     //user clicked no
@@ -23,11 +23,14 @@ const ThankYouNo = (props) => {
 
     return (
         <div className="didYouFindNoSelector">
-            <span>
+            <span className="didYouFindMessageSelector">
                 Thank you.
-                <span className="didyoufind-label">
-                    <input className="didyoufind-feedback-btn" type="button" value="What were you looking for?" onClick={ e => showModal(e)} />
-                </span>
+                <button className="didyoufind-feedback-btn" onClick={ e => showModal(e)}>
+                    <svg className="didyoufind-icon-note">
+                        <use href={"#icon-sprite-hmds_icon__note"} />
+                    </svg>
+                    <span className="didYouFindQuestionButtonSelector">What were you looking for?</span>
+                </button>
             </span>
             <Modal searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
             </Modal>

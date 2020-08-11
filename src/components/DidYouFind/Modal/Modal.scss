@@ -4,71 +4,138 @@
   width: 700px;
   max-width: 700px;
   min-width: 700px;
-  height: 500px;
-  max-height: 500px;
-  min-height: 500px;
   position: fixed;
   left: 400px;
   background-color: $els-color-n9;
   border: 20px solid rgba(80, 80, 80, .5);
   background-clip:padding-box;
   z-index: 1;
-}
 
-.thanksForRespondingModal {
-  font-family: $els-font-base;
-  font-size: $els-fs-h2;
-  color: $els-color-n1;
-  padding: 10px;
+  button.didyoufind-modal-close-icon {
+    @extend .u-els-anchorize;
+    @extend .c-els-link;
+    @extend .c-els-link--with-icon;
+
+    color: $els-color-secondary-on-dark;
+    font-family: $els-font-base;
+    font-size: $els-fs-base;
+    float: right;
+    padding: 6px 0 8px 0px;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: $els-color-primary-on-dark;
+      border-color: $els-color-primary-on-dark;
+
+      svg {
+        color: $els-color-primary-on-dark;
+      }
+    }
+
+    svg {
+      @extend .c-els-link__icon;
+      @extend .o-els-icon-svg;
+      @extend .o-els-icon-svg--2x;
+      @extend .o-els-icon-svg--middle;
+    }
+  }
+
+  .thanksForRespondingModal {
+    font-family: $els-font-base;
+    font-size: $els-fs-h2;
+    color: $els-color-n1;
+    padding: 10px 16px 10px 10px;
+  }
+
+  .didyoufind-modal-button-container {
+    padding: 16px;
+
+    .overTheCharacterLimit {
+      color: $els-color-extended-orange-4;
+      display: inline-block;
+    }
+
+    .didYouFindModalCloseBtn {
+      @extend .u-els-anchorize;
+      @extend .c-els-link;
+      @extend .c-els-link--with-icon;
+
+      font-family: $els-font-base;
+      font-size: $els-fs-base;
+      float: right;
+      color: $els-color-secondary-on-dark;
+      background: none!important;
+      border: none;
+      margin-right: 16px;
+      padding: 2px;
+      margin-top: 3px;
+
+      &:hover {
+        color: $els-color-primary-on-dark;
+      }
+
+      span.didYouFindModalCloseBtn-label {
+        @extend .c-els-link__text;
+        color: $els-color-secondary-on-dark;
+      }
+    }
+
+    .didYouFindModalSubmitBtn {
+      @extend .c-els-button;
+      @extend .c-els-button--info;
+
+      font-size: $els-fs-base;
+      float: right;
+
+      &:disabled {
+        color: $els-color-n1;
+        background-color: $els-color-n7;
+        border: none;
+      }
+
+      span.didYouFindModalSubmitBtn-label {
+        @extend .c-els-link__text;
+      }
+    }
+  }
 }
 
 .tellUsMoreLabel {
   font-family: $els-font-base;
-  font-size: 16pt;
   font-weight: normal;
   color: $els-color-n0;
   background-color: $els-color-n9;
-  padding: 10px;
+  padding: 10px 16px;
 }
 
-.tellUsMoreTextArea {
-  width: 640px;
-  min-width: 640px;
-  max-width: 640px;
-  height: 250px;
-  max-height: 250px;
-  min-height: 250px;
-  background-color: $els-color-n0;
-  color: $els-color-n10;
-  font-family: $els-font-base;
-  font-size: $els-fs-base;
+.tellUsMoreTextAreaContainer {
+  @extend .c-els-field;
+
+  padding-left: 16px;
+  padding-right: 16px;
+
+  .tellUsMoreTextAreaLabel {
+    @extend .c-els-field__label;
+
+    .tellUsMoreTextArea {
+      @extend .u-els-width-1o1;
+      @extend .c-els-field__input;
+
+      padding: 16px;
+      height: 125px;
+      max-height: 125px;
+      min-height: 125px;
+      background-color: $els-color-n0;
+      color: $els-color-n10;
+      font-family: $els-font-base;
+      font-size: $els-fs-base;
+      border-bottom-color: $els-color-n10;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
 }
 
-.didYouFindModalCloseBtn {
-  font-size: $els-fs-base;
-  float: right;
-  color: $els-color-secondary-on-dark;
-  background: none!important;
-  border: none;
-  margin-right: 20px;
-  padding: 2px;
-}
-
-.didYouFindModalCloseBtn:hover {
-  color: $els-color-primary-on-dark;
-}
-
-.didYouFindModalSubmitBtn {
-  font-size: $els-fs-base;
-  float: right;
-  margin-right: 20px;
-}
-
-.didYouFindModalSubmitBtn:hover {
-  color: $els-color-primary;
-}
-
-.didYouFindModalSubmitBtn:disabled {
-  color: rgba(255, 255, 255, .4);
-  background-color: $els-color-n9;
-}
