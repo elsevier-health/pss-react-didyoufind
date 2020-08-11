@@ -1,6 +1,6 @@
 {
   "name": "@pss/pss-react-didyoufind",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "didyoufind",
   "main": "build/didyoufind.js",
   "scripts": {
