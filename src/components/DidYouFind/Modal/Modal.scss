@@ -90,7 +90,7 @@
       &:disabled {
         color: $els-color-n1;
         background-color: $els-color-n7;
-        border: none;
+        border-color: $els-color-n7;
       }
 
       span.didYouFindModalSubmitBtn-label {

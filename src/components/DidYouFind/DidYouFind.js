@@ -51,8 +51,10 @@ const DidYouFind = (props) => {
     return (
         <div className="didyoufind didYouFindSelector">
             {answer === "" ?
-                <span className="didYouFindMessageSelector" >
-                    Is this information what you were looking for?
+                <div>
+                    <span className="didYouFindMessageSelector" >
+                        Is this information what you were looking for?
+                    </span>
                     <span className="didyoufind-form" >
                         <span className="didyoufind-form-field">
                             <label>
@@ -85,7 +87,7 @@ const DidYouFind = (props) => {
                             </label>
                         </span>
                     </span>
-                </span>
+                </div>
                 : answer === "yes" ?
                     <ThankYou/>
                     : <ThankYouNo searchTerm={searchTerm} documentId={documentId} documentName={documentName} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
