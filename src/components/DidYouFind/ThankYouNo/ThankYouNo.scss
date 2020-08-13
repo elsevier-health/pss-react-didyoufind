@@ -18,6 +18,10 @@ button.didyoufind-feedback-btn {
     color: $els-color-primary-on-dark;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   svg {
     @extend .c-els-link__icon;
     @extend .o-els-icon-svg;
