@@ -1,11 +1,10 @@
-import React from "react";
+import React from 'react';
 import axios from "axios";
 import "./Modal.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
 
 const Modal = (props) => {
-
 
     const maxCharsInFeedback = 2550;
 
@@ -58,12 +57,17 @@ const Modal = (props) => {
     const updateOverLimit = (feedbackLength) => {
         const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtn");
         const [overLimit] = document.getElementsByClassName("overTheCharacterLimitSelector");
-        if (feedbackLength > maxCharsInFeedback) {
-            const over = feedbackLength - maxCharsInFeedback;
-            overLimit.innerText = over + " over the limit";
+
+        if (feedbackLength > maxCharsInFeedback || feedbackLength === 0) {
             submitBtn.disabled = true;
         } else {
             submitBtn.disabled = false;
+        }
+
+        if (feedbackLength > maxCharsInFeedback) {
+            const over = feedbackLength - maxCharsInFeedback;
+            overLimit.innerText = over + " over the limit";
+        } else {
             overLimit.innerText = "";
         }
     };
@@ -95,7 +99,7 @@ const Modal = (props) => {
                 <div className="didyoufind-modal-button-container">
                     <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>
 
-                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button" onClick={e => {
+                    <button disabled={true} className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button" onClick={e => {
                         submitFeedback(e)
                     }}>
                         <span className="didYouFindModalSubmitBtn-label">
