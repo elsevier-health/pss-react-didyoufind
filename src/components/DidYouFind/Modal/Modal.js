@@ -3,18 +3,17 @@ import axios from "axios";
 import "./Modal.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
-
 const Modal = (props) => {
 
     const maxCharsInFeedback = 2550;
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
     const submitFeedback = (event) => {
-        const [contentEditableDiv] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
-
         if (submitButtonDisabled) {
             return;
         }
+
+        const [contentEditableDiv] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
 
         const feedback = contentEditableDiv.innerHTML;
 
