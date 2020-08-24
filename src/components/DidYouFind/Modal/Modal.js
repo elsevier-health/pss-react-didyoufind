@@ -45,14 +45,20 @@ const Modal = (props) => {
     const onPasteEntry = (e) => {
         const paste = (e.clipboardData || window.clipboardData).getData('text');
         updateEditableText();
-        updateOverLimit(paste.length);
+
+        // This method replaces &nbsp; with a regular space to keep the over limit numbers correct.
+        const length = replaceNoBreakSpaces(paste).length;
+        updateOverLimit(length);
     };
 
     const onTextEntry = (e) => {
         const txtArea = e.target;
         const text = txtArea.innerHTML;
         updateEditableText();
-        updateOverLimit(text.length);
+
+        // This method replaces &nbsp; with a regular space to keep the over limit numbers correct.
+        const length = replaceNoBreakSpaces(text).length;
+        updateOverLimit(length);
     };
 
     const onScroll = (e) => {
@@ -68,21 +74,21 @@ const Modal = (props) => {
         const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
 
         const text = editable.innerHTML;
-        const overage = text.slice(maxCharsInFeedback, text.length);
+        const overage = text.slice(maxCharsInFeedback, text.length).trim();
         readOnly.innerHTML = applyHighlight(text, overage);
     };
 
     const applyHighlight = (text, overage) => {
-        const regex = new RegExp(`${escapeRegExp(overage)}$`);
-        return text
-            .replace("&nbsp;"," ")
-            .replace(regex, `<span class="highlight">${overage}</span>`);
+        const regex = new RegExp(`${escapeRegExp(overage)}[\s|&nbsp;]*?$`);
+        return text.replace(regex, `<span class="highlight">${overage}</span>`);
     };
 
     const escapeRegExp = (text) => {
-        return text
-            .replace(/[-\/\\^$*+?.()|\[\]{}]/g, '\\$&')
-            .replace("&nbsp;"," ");
+        return text.replace(/[-\/\\^$*+?.()|\[\]{}]/g, '\\$&');
+    };
+
+    const replaceNoBreakSpaces = (text) => {
+        return text.replace(/&nbsp;/g," ");
     };
 
     const updateEditableText = () => {
