@@ -10,14 +10,13 @@ const Modal = (props) => {
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
     const submitFeedback = (event) => {
-        const [e] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
-        const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtnSelector");
+        const [contentEditableDiv] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
 
-        if (submitBtn.disabled) {
+        if (submitButtonDisabled) {
             return;
         }
 
-        const feedback = e.value;
+        const feedback = contentEditableDiv.innerHTML;
 
         const data = {
             searchTerm: props.searchTerm,
