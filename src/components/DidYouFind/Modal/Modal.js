@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import axios from "axios";
 import "./Modal.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
@@ -7,9 +7,9 @@ import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 const Modal = (props) => {
 
     const maxCharsInFeedback = 2550;
+    const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
     const submitFeedback = (event) => {
-
         const [e] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
         const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtnSelector");
 
@@ -55,14 +55,9 @@ const Modal = (props) => {
     };
 
     const updateOverLimit = (feedbackLength) => {
-        const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtn");
         const [overLimit] = document.getElementsByClassName("overTheCharacterLimitSelector");
 
-        if (feedbackLength > maxCharsInFeedback || feedbackLength === 0) {
-            submitBtn.disabled = true;
-        } else {
-            submitBtn.disabled = false;
-        }
+        setSubmitButtonDisabled(feedbackLength > maxCharsInFeedback || feedbackLength === 0);
 
         if (feedbackLength > maxCharsInFeedback) {
             const over = feedbackLength - maxCharsInFeedback;
@@ -99,9 +94,9 @@ const Modal = (props) => {
                 <div className="didyoufind-modal-button-container">
                     <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>
 
-                    <button disabled={true} className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button" onClick={e => {
-                        submitFeedback(e)
-                    }}>
+                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button"
+                            disabled={submitButtonDisabled}
+                            onClick={submitFeedback}>
                         <span className="didYouFindModalSubmitBtn-label">
                             Submit
                         </span>
