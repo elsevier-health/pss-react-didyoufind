@@ -3,21 +3,19 @@ import axios from "axios";
 import "./Modal.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
-
 const Modal = (props) => {
 
     const maxCharsInFeedback = 2550;
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
     const submitFeedback = (event) => {
-        const [e] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
-        const [submitBtn] = document.getElementsByClassName("didYouFindModalSubmitBtnSelector");
-
-        if (submitBtn.disabled) {
+        if (submitButtonDisabled) {
             return;
         }
 
-        const feedback = e.value;
+        const [contentEditableDiv] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+
+        const feedback = contentEditableDiv.innerHTML;
 
         const data = {
             searchTerm: props.searchTerm,
@@ -46,12 +44,56 @@ const Modal = (props) => {
 
     const onPasteEntry = (e) => {
         const paste = (e.clipboardData || window.clipboardData).getData('text');
+        updateEditableText();
         updateOverLimit(paste.length);
     };
 
     const onTextEntry = (e) => {
         const txtArea = e.target;
-        updateOverLimit(txtArea.value.length);
+        const text = txtArea.innerHTML;
+        updateEditableText();
+        updateOverLimit(text.length);
+    };
+
+    const onScroll = (e) => {
+        const [editable] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
+
+        const scrollTop = editable.scrollTop;
+        readOnly.scrollTop = scrollTop;
+    };
+
+    const highlightOverage = () => {
+        const [editable] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
+
+        const text = editable.innerHTML;
+        const overage = text.slice(maxCharsInFeedback, text.length);
+        readOnly.innerHTML = applyHighlight(text, overage);
+    };
+
+    const applyHighlight = (text, overage) => {
+        const regex = new RegExp(`${escapeRegExp(overage)}$`);
+        return text
+            .replace("&nbsp;"," ")
+            .replace(regex, `<span class="highlight">${overage}</span>`);
+    };
+
+    const escapeRegExp = (text) => {
+        return text
+            .replace(/[-\/\\^$*+?.()|\[\]{}]/g, '\\$&')
+            .replace("&nbsp;"," ");
+    };
+
+    const updateEditableText = () => {
+        const [editable] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
+
+        const text = editable.innerHTML;
+        readOnly.innerHTML = text;
+
+        const scrollTop = editable.scrollTop;
+        readOnly.scrollTop = scrollTop;
     };
 
     const updateOverLimit = (feedbackLength) => {
@@ -62,6 +104,7 @@ const Modal = (props) => {
         if (feedbackLength > maxCharsInFeedback) {
             const over = feedbackLength - maxCharsInFeedback;
             overLimit.innerText = over + " over the limit";
+            highlightOverage();
         } else {
             overLimit.innerText = "";
         }
@@ -82,14 +125,15 @@ const Modal = (props) => {
                     Please tell us more about what you were looking for
                 </div>
                 <div className="tellUsMoreTextAreaContainer">
-                    <label className="tellUsMoreTextAreaLabel">
-                        <textarea
-                            onPaste={onPasteEntry}
-                            onKeyUp={onTextEntry}
-                            className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
-                            rows="10" />
-                    </label>
-
+                    <div
+                        onPaste={onPasteEntry}
+                        onKeyUp={onTextEntry}
+                        onScroll={onScroll}
+                        className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
+                        contentEditable={true}
+                        rows="10" />
+                    <div contentEditable={true}
+                         className="tellUsMoreTextAreaReadOnly tellUsMoreTextAreaReadOnlySelector" />
                 </div>
                 <div className="didyoufind-modal-button-container">
                     <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>
