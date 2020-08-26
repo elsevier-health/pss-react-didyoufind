@@ -21,6 +21,7 @@ const Modal = (props) => {
             searchTerm: props.searchTerm,
             documentId: props.documentId,
             documentName: props.documentName,
+            documentUrl: props.documentUrl,
             feedback: feedback
 
         };

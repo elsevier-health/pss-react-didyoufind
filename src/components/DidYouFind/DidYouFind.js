@@ -11,6 +11,7 @@ const DidYouFind = (props) => {
     const [ searchTerm, setSearchTerm ] = useState("");
     const [ documentId, setDocumentId] = useState("");
     const [ documentName, setDocumentName] = useState("");
+    const [documentUrl, setDocumentUrl] = useState("");
 
     const handleSelection = (event) => {
         setAnswer(event.target.id);
@@ -18,16 +19,19 @@ const DidYouFind = (props) => {
         const [e] = document.getElementsByClassName("documentContainerSelector");
         const docId = e.getAttribute("data-document-id");
         const docName = e.getAttribute("data-slug");
+        const docUrl = window.location.href;
 
         setSearchTerm(window.searchTerm);
         setDocumentId(docId);
         setDocumentName(docName);
+        setDocumentUrl(docUrl);
 
         const data = {
             searchTerm: window.searchTerm,
             documentName: docName,
             documentId: docId,
-            outcome: event.target.id
+            outcome: event.target.id,
+            documentUrl: docUrl
         };
 
         axios.put("/search/outcome", data)
@@ -90,7 +94,7 @@ const DidYouFind = (props) => {
                 </div>
                 : answer === "yes" ?
                     <ThankYou/>
-                    : <ThankYouNo searchTerm={searchTerm} documentId={documentId} documentName={documentName} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
+                    : <ThankYouNo searchTerm={searchTerm} documentId={documentId} documentName={documentName} documentUrl={documentUrl} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
 
             }
         </div>
