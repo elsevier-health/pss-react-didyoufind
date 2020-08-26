@@ -32,7 +32,7 @@ const ThankYouNo = (props) => {
                     <span className="didYouFindQuestionButtonSelector">What were you looking for?</span>
                 </button>
             </span>
-            <Modal searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
+            <Modal searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} documentUrl={props.documentUrl} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
             </Modal>
         </div>
     );
