@@ -13,9 +13,9 @@ const Modal = (props) => {
             return;
         }
 
-        const [contentEditableDiv] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [textarea] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
 
-        const feedback = contentEditableDiv.innerHTML;
+        const feedback = textarea.value;
 
         const data = {
             searchTerm: props.searchTerm,
@@ -46,59 +46,58 @@ const Modal = (props) => {
         const paste = (e.clipboardData || window.clipboardData).getData('text');
         updateEditableText();
 
-        // This method replaces &nbsp; with a regular space to keep the over limit numbers correct.
-        const length = replaceNoBreakSpaces(paste).length;
+        const length = paste.length;
         updateOverLimit(length);
     };
 
     const onTextEntry = (e) => {
         const txtArea = e.target;
-        const text = txtArea.innerHTML;
+        const text = txtArea.value;
         updateEditableText();
 
-        // This method replaces &nbsp; with a regular space to keep the over limit numbers correct.
-        const length = replaceNoBreakSpaces(text).length;
+        const length = text.length;
         updateOverLimit(length);
     };
 
     const onScroll = (e) => {
-        const [editable] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [textarea] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
         const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
 
-        const scrollTop = editable.scrollTop;
+        const scrollTop = textarea.scrollTop;
         readOnly.scrollTop = scrollTop;
     };
 
     const highlightOverage = () => {
-        const [editable] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [textarea] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
         const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
 
-        const text = editable.innerHTML;
-        const overage = text.slice(maxCharsInFeedback, text.length).trim();
+        const text = textarea.value;
+        const overage = text.slice(maxCharsInFeedback, text.length);
         readOnly.innerHTML = applyHighlight(text, overage);
     };
 
     const applyHighlight = (text, overage) => {
-        const regex = new RegExp(`${escapeRegExp(overage)}[\s|&nbsp;]*?$`);
-        return text.replace(regex, `<span class="highlight">${overage}</span>`);
+        const regex = new RegExp(`${escapeRegExp(overage)}$`);
+        text = text.replace(regex, `<span class="highlight">${overage}</span>`);
+        return replaceCarriageReturns(text);
     };
 
     const escapeRegExp = (text) => {
         return text.replace(/[-\/\\^$*+?.()|\[\]{}]/g, '\\$&');
     };
 
-    const replaceNoBreakSpaces = (text) => {
-        return text.replace(/&nbsp;/g," ");
+    const replaceCarriageReturns = (text) => {
+        return text.replace(/\n/g,"<br>");
     };
 
     const updateEditableText = () => {
-        const [editable] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
+        const [textarea] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
         const [readOnly] = document.getElementsByClassName("tellUsMoreTextAreaReadOnlySelector");
 
-        const text = editable.innerHTML;
-        readOnly.innerHTML = text;
+        const text = textarea.value;
+        readOnly.innerHTML = replaceCarriageReturns(text);
 
-        const scrollTop = editable.scrollTop;
+        const scrollTop = textarea.scrollTop;
         readOnly.scrollTop = scrollTop;
     };
 
@@ -131,12 +130,11 @@ const Modal = (props) => {
                     Please tell us more about what you were looking for
                 </div>
                 <div className="tellUsMoreTextAreaContainer">
-                    <div
+                    <textarea
                         onPaste={onPasteEntry}
                         onKeyUp={onTextEntry}
                         onScroll={onScroll}
                         className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
-                        contentEditable={true}
                         rows="10" />
                     <div contentEditable={true}
                          className="tellUsMoreTextAreaReadOnly tellUsMoreTextAreaReadOnlySelector" />

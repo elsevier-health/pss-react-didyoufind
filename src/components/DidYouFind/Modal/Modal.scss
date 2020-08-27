@@ -148,6 +148,8 @@
   .tellUsMoreTextAreaReadOnly {
     z-index: -99;
     color: $els-color-n10;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   span.highlight {
