@@ -35,7 +35,7 @@
     svg {
       @extend .c-els-link__icon;
       @extend .o-els-icon-svg;
-      @extend .o-els-icon-svg--2x;
+      @extend .o-els-icon-svg--1x;
       @extend .o-els-icon-svg--middle;
     }
   }
@@ -49,6 +49,7 @@
 
   .didyoufind-modal-button-container {
     padding: 16px;
+    height: 72px;
 
     .overTheCharacterLimit {
       color: $els-color-extended-orange-4;
