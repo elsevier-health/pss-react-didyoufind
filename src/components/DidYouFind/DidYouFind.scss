@@ -3,31 +3,55 @@
 .didyoufind {
   font-family: $els-font-base;
   font-size: $els-fs-base;
-  color: #FACF6E;
+  color: $message-color;
   height: 26px;
-}
 
-.didyoufind-form {
-  @extend .c-els-field__label;
-  color: $els-color-secondary-on-dark;
-  display: inline-block;
-  padding-left: 16px;
+  .didyoufind-form {
+    @extend .c-els-field__label;
+    color: $link-color;
+    display: inline-block;
+    padding-left: 16px;
 
-  input {
-    @extend .c-els-field__input;
+    input {
+      @extend .c-els-field__input;
+    }
+
+    span.didyoufind-form-field {
+      @extend .c-els-field;
+      @extend .c-els-field--radio;
+    }
+
+    span.didyoufind-label {
+      @extend .c-els-field__label-text;
+      font-size: 16px !important;
+
+      span.didyoufind-label-switch {
+        @extend .c-els-field__switch;
+      }
+    }
+
+    &:hover {
+      color: $link-hover-color;
+
+      .didyoufind-label-switch {
+        border: .125rem solid $link-hover-color !important;
+      }
+    }
   }
 
-  span.didyoufind-form-field {
-   @extend .c-els-field;
-   @extend .c-els-field--radio;
-  }
+  &.dark {
+    color: $message-color-dark;
 
-  span.didyoufind-label {
-    @extend .c-els-field__label-text;
-    font-size: 16px !important;
+    .didyoufind-form {
+      color: $link-color-dark;
 
-    span.didyoufind-label-switch {
-      @extend .c-els-field__switch;
+      &:hover {
+        color: $link-hover-color-dark;
+
+        .didyoufind-label-switch {
+          border: .125rem solid $link-hover-color-dark !important;
+        }
+      }
     }
   }
 }

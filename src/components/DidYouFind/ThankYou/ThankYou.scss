@@ -1,0 +1,9 @@
+@import "../../../App";
+
+.didYouFindYes {
+  color: $message-color;
+
+  &.dark {
+    color: $message-color-dark;
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { configure, mount } from "enzyme";
+import { configure, mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import axios from "axios";
 
@@ -26,7 +26,6 @@ describe("<Modal />", () => {
     it("does not render the modal if the show property is missing", () => {
         expect(wrapper.find(".didyoufind-modal")).toHaveLength(0);
     });
-
 
     it("does not render the modal if the show property is false", () => {
         wrapper.setProps({show: false});
@@ -105,4 +104,22 @@ describe("<Modal />", () => {
         wrapper.find("button.didYouFindModalCloseBtn").simulate("click");
         expect(wrapper.find(".didyoufind-modal")).toHaveLength(0);
     });
+
+    describe("<Modal darkMode/>", () => {
+        it('should not have a "dark" class if the darkMode prop is missing', () => {
+            wrapper = shallow(<Modal show={true} />);
+            expect(wrapper.hasClass('dark')).toEqual(false);
+        });
+
+        it('should have a "dark" class if the darkMode prop is true', () => {
+            wrapper = shallow(<Modal darkMode={true} show={true} />);
+            expect(wrapper.hasClass('dark')).toEqual(true);
+        });
+
+        it('should not have a "dark" class if the darkMode prop is false', () => {
+            wrapper = shallow(<Modal darkMode={false} show={true} />);
+            expect(wrapper.hasClass('dark')).toEqual(false);
+        });
+    });
+
 });
