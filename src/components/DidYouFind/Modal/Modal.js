@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Modal.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
-const Modal = (props) => {
+const Modal = props => {
 
     const maxCharsInFeedback = 2550;
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
@@ -116,9 +116,11 @@ const Modal = (props) => {
         }
     };
 
+    const className = props.darkMode ? "didyoufind-modal didYouFindModalSelector dark" : "didyoufind-modal didYouFindModalSelector";
+
     if (props.show) {
         return (
-            <div className="didyoufind-modal didYouFindModalSelector">
+            <div className={className}>
                 <div className="thanksForRespondingModal thanksForRespondingModalSelector">
                     Thanks for responding
                     <button className="didyoufind-modal-close-icon didYouFindCloseIconSelector" onClick={ e => { onClose(e) } } >

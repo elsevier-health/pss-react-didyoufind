@@ -1,36 +1,54 @@
 @import "../../../App";
 
-button.didyoufind-feedback-btn {
-  @extend .u-els-anchorize;
-  @extend .c-els-link;
-  @extend .c-els-link--with-icon;
+.didYouFindNo {
+  button.didyoufind-feedback-btn {
+    @extend .u-els-anchorize;
+    @extend .c-els-link;
+    @extend .c-els-link--with-icon;
 
-  margin-left: 16px;
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  font-family: $els-font-base;
-  font-size: $els-fs-base;
-  color: $els-color-secondary-on-dark;
-  cursor: pointer;
+    margin-left: 16px;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: $els-font-base;
+    font-size: $els-fs-base;
+    color: $link-color;
+    cursor: pointer;
 
-  &:hover {
-    color: $els-color-primary-on-dark;
+    &:hover {
+      color: $link-hover-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    svg {
+      @extend .c-els-link__icon;
+      @extend .o-els-icon-svg;
+      @extend .o-els-icon-svg--1x;
+      @extend .o-els-icon-svg--middle;
+    }
+
+    span {
+      @extend .c-els-link__text;
+      color: $link-color;
+    }
   }
 
-  &:focus {
-    outline: none;
-  }
+  &.dark {
+    button.didyoufind-feedback-btn {
+      color: $link-color-dark;
+      span {
+        color: $link-color-dark;
+      }
 
-  svg {
-    @extend .c-els-link__icon;
-    @extend .o-els-icon-svg;
-    @extend .o-els-icon-svg--1x;
-    @extend .o-els-icon-svg--middle;
-  }
-
-  span {
-    @extend .c-els-link__text;
-    color: $els-color-secondary-on-dark;
+      &:hover {
+        color: $link-hover-color-dark;
+        span {
+          color: $link-hover-color-dark;
+        }
+      }
+    }
   }
 }

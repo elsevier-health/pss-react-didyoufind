@@ -4,7 +4,6 @@ import ThankYou from "./ThankYou/ThankYou";
 import ThankYouNo from "./ThankYouNo/ThankYouNo";
 import "./DidYouFind.scss";
 
-
 const DidYouFind = (props) => {
 
     const [answer, setAnswer] = useState("");
@@ -52,8 +51,11 @@ const DidYouFind = (props) => {
         setAnswer("yes");
     };
 
+    const darkMode = props.darkMode && props.darkMode === "true";
+    const className = darkMode ? "didyoufind didYouFindSelector dark" : "didyoufind didYouFindSelector";
+
     return (
-        <div className="didyoufind didYouFindSelector">
+        <div className={className}>
             {answer === "" ?
                 <div>
                     <span className="didYouFindMessageSelector" >
@@ -93,8 +95,8 @@ const DidYouFind = (props) => {
                     </span>
                 </div>
                 : answer === "yes" ?
-                    <ThankYou/>
-                    : <ThankYouNo searchTerm={searchTerm} documentId={documentId} documentName={documentName} documentUrl={documentUrl} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
+                    <ThankYou darkMode={darkMode} />
+                    : <ThankYouNo darkMode={darkMode} searchTerm={searchTerm} documentId={documentId} documentName={documentName} documentUrl={documentUrl} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
 
             }
         </div>

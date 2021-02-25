@@ -55,6 +55,7 @@
     "webpack-merge": "^5.0.9"
   },
   "dependencies": {
+    "@pss/pss-styleguide-dark": "^1.0.1",
     "axios": "^0.21.1"
   }
 }

@@ -3,7 +3,7 @@ import Modal from "../Modal/Modal";
 import "./ThankYouNo.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
-const ThankYouNo = (props) => {
+const ThankYouNo = props => {
     //user clicked no
 
 
@@ -21,8 +21,10 @@ const ThankYouNo = (props) => {
         props.onFeedbackSubmit(event);
     };
 
+    const className = props.darkMode ? "didYouFindNo didYouFindNoSelector dark" : "didYouFindNo didYouFindNoSelector";
+
     return (
-        <div className="didYouFindNoSelector">
+        <div className={className}>
             <span className="didYouFindMessageSelector">
                 Thank you.
                 <button className="didyoufind-feedback-btn" onClick={ e => showModal(e)}>
@@ -32,7 +34,7 @@ const ThankYouNo = (props) => {
                     <span className="didYouFindQuestionButtonSelector">What were you looking for?</span>
                 </button>
             </span>
-            <Modal searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} documentUrl={props.documentUrl} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
+            <Modal darkMode={props.darkMode} searchTerm={props.searchTerm} documentId={props.documentId} documentName={props.documentName} documentUrl={props.documentUrl} show={show} onClose={e => closeModal(e)} onSubmitFeedback={e => onSubmitFeedback(e)} >
             </Modal>
         </div>
     );

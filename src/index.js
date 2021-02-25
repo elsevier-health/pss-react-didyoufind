@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie9';
 import 'react-app-polyfill/ie11';
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import DidYouFind from "./components/DidYouFind/DidYouFind";
 
-ReactDOM.render(<App />, document.getElementById("didyoufind"));
+const root = document.getElementById("didyoufind");
+ReactDOM.render(<DidYouFind {...root.dataset} />, root);
