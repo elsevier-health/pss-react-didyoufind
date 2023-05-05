@@ -1,61 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import classnames from "classnames";
+import { bool, string } from "prop-types";
 import axios from "axios";
+
 import ThankYou from "./ThankYou/ThankYou";
 import ThankYouNo from "./ThankYouNo/ThankYouNo";
+import Modal from "./Modal/Modal";
+import logger from "./logger";
+
 import "./DidYouFind.scss";
 
 const DidYouFind = (props) => {
 
     const [answer, setAnswer] = useState("");
-    const [ searchTerm, setSearchTerm ] = useState("");
-    const [ documentId, setDocumentId] = useState("");
-    const [ documentName, setDocumentName] = useState("");
-    const [documentUrl, setDocumentUrl] = useState("");
+    const [ showModal, setShowModal ] = useState(false);
 
-    const handleSelection = (event) => {
-        setAnswer(event.target.id);
+    const handleSelection = (selection) => {
+        setAnswer(selection);
 
-        const [e] = document.getElementsByClassName("documentContainerSelector");
-        const docId = e.getAttribute("data-document-id");
-        const docName = e.getAttribute("data-slug");
-        const docUrl = window.location.href;
-
-        setSearchTerm(window.searchTerm);
-        setDocumentId(docId);
-        setDocumentName(docName);
-        setDocumentUrl(docUrl);
-
-        const data = {
-            searchTerm: window.searchTerm,
-            documentName: docName,
-            documentId: docId,
-            outcome: event.target.id,
-            documentUrl: docUrl
-        };
-
-        axios.put("/search/outcome", data)
+        axios.put("/search/outcome", {
+            searchTerm: props.searchTerm,
+            documentName: props.documentName,
+            documentId: props.documentId,
+            outcome: selection,
+            documentUrl: props.documentUrl
+        })
             .then(response => {
-                if (console) {
-                    console.log("success");
-                }
+                logger.log('success');
             })
             .catch((err) => {
-                if (console) {
-                    console.log("Error " + err);
-                }
+                logger.error("Error " + err);
             });
     };
-
 
     const onFeedbackSubmit = (event) => {
         setAnswer("yes");
     };
 
-    const darkMode = props.darkMode && props.darkMode === "true";
-    const className = darkMode ? "didyoufind didYouFindSelector dark" : "didyoufind didYouFindSelector";
+    const className = classnames(
+        "didyoufind",
+        "didYouFindSelector",
+        {
+            "dark": props.darkMode
+        }
+    );
 
     return (
-        <div className={className}>
+        <div className={className} data-testid="qa-didyoufind">
             {answer === "" ?
                 <div>
                     <span className="didYouFindMessageSelector" >
@@ -66,10 +57,14 @@ const DidYouFind = (props) => {
                             <label>
                                 <input
                                     className="radioYesSelector"
+                                    data-testid="qa-didyoufind-yes-radio"
                                     name="input-type-radio"
                                     type="radio"
                                     id="yes"
-                                    onClick={handleSelection} />
+                                    onClick={() => {
+                                        handleSelection("yes")
+                                    }}
+                                />
                                 <span className="didyoufind-label labelYesSelector">
                                     <span className="didyoufind-label-switch" />
                                     Yes
@@ -82,10 +77,14 @@ const DidYouFind = (props) => {
                             <label>
                                 <input
                                     className="radioNoSelector"
+                                    data-testid="qa-didyoufind-no-radio"
                                     name="input-type-radio"
                                     type="radio"
                                     id="no"
-                                    onClick={handleSelection} />
+                                    onClick={() => {
+                                        handleSelection("no")
+                                    }}
+                                />
                                 <span className="labelNoSelector didyoufind-label">
                                     <span className="didyoufind-label-switch" />
                                     No
@@ -95,14 +94,36 @@ const DidYouFind = (props) => {
                     </span>
                 </div>
                 : answer === "yes" ?
-                    <ThankYou darkMode={darkMode} />
-                    : <ThankYouNo darkMode={darkMode} searchTerm={searchTerm} documentId={documentId} documentName={documentName} documentUrl={documentUrl} onFeedbackSubmit={e => onFeedbackSubmit(e)}/>
+                    <ThankYou darkMode={props.darkMode} />
+                    : <ThankYouNo darkMode={props.darkMode} setShowModal={setShowModal}/>
 
             }
+            <Modal
+                darkMode={props.darkMode}
+                searchTerm={props.searchTerm}
+                documentId={props.documentId}
+                documentName={props.documentName}
+                documentUrl={props.documentUrl}
+                show={showModal}
+                onClose={() => {
+                    setShowModal(false);
+                }}
+                onSubmitFeedback={onFeedbackSubmit}
+            />
         </div>
     );
-
-
 };
+
+DidYouFind.propTypes = {
+    darkMode: bool,
+    documentId: string,
+    documentName: string,
+    documentUrl: string,
+    searchTerm: string
+};
+
+DidYouFind.defaultProps = {
+    darkMode: false
+}
 
 export default DidYouFind;

@@ -1,49 +1,53 @@
 import React, { useState } from "react";
+import classnames from "classnames";
+import { bool, func, string } from "prop-types";
 import axios from "axios";
+
+import logger from "../logger";
+
 import "./Modal.scss";
 import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
 
-const Modal = props => {
+const Modal = ({
+    dark,
+    documentId,
+    documentName,
+    documentUrl,
+    onClose,
+    onSubmitFeedback,
+    searchTerm,
+    show
+}) => {
 
     const maxCharsInFeedback = 2550;
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
 
     const submitFeedback = (event) => {
-        if (submitButtonDisabled) {
-            return;
-        }
-
         const [textarea] = document.getElementsByClassName("tellUsMoreTextAreaSelector");
 
         const feedback = textarea.value;
 
         const data = {
-            searchTerm: props.searchTerm,
-            documentId: props.documentId,
-            documentName: props.documentName,
-            documentUrl: props.documentUrl,
+            searchTerm: searchTerm,
+            documentId: documentId,
+            documentName: documentName,
+            documentUrl: documentUrl,
             feedback: feedback
 
         };
+
         axios.put("/search/feedback", data)
             .then(response => {
-                if (console) {
-                    console.log("success"); //todo do we put a logger here. where does it log to?
-                }
+                logger.log("success");
             })
             .catch((err) => {
-                if (console) {
-                    console.log("Error " + err);
-                }
+                logger.error("Error " + err);
             });
-        props.onSubmitFeedback(event);
-    };
-
-    const onClose = (event) => {
-        props.onClose(event);
+        onSubmitFeedback(event);
     };
 
     const onPasteEntry = (e) => {
+        /* istanbul ignore next */
         const paste = (e.clipboardData || window.clipboardData).getData('text');
         updateEditableText();
 
@@ -79,7 +83,7 @@ const Modal = props => {
 
     const applyHighlight = (text, overage) => {
         const regex = new RegExp(`${escapeRegExp(overage)}$`);
-        text = text.replace(regex, `<span class="highlight">${overage}</span>`);
+        text = text.replace(regex, `<span class="highlight" data-testid="highlight">${overage}</span>`);
         return replaceCarriageReturns(text);
     };
 
@@ -116,14 +120,24 @@ const Modal = props => {
         }
     };
 
-    const className = props.darkMode ? "didyoufind-modal didYouFindModalSelector dark" : "didyoufind-modal didYouFindModalSelector";
+    const className = classnames(
+        "didyoufind-modal",
+        "didYouFindModalSelector",
+        {
+            "dark": dark
+        }
+    );
 
-    if (props.show) {
+    if (show) {
         return (
-            <div className={className}>
+            <div className={className} data-testid="qa-didyoufind-modal">
                 <div className="thanksForRespondingModal thanksForRespondingModalSelector">
                     Thanks for responding
-                    <button className="didyoufind-modal-close-icon didYouFindCloseIconSelector" onClick={ e => { onClose(e) } } >
+                    <button
+                        className="didyoufind-modal-close-icon didYouFindCloseIconSelector"
+                        data-testid="qa-didyoufind-modal-close-icon"
+                        onClick={ e => { onClose(e) } }
+                    >
                         <svg className="didyoufind-icon-x">
                             <use href={"#icon-sprite-hmds_icon__close"} />
                         </svg>
@@ -140,12 +154,15 @@ const Modal = props => {
                         className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
                         rows="10" />
                     <div contentEditable={true}
-                         className="tellUsMoreTextAreaReadOnly tellUsMoreTextAreaReadOnlySelector" />
+                         className="tellUsMoreTextAreaReadOnly tellUsMoreTextAreaReadOnlySelector"
+                         data-testid="qa-didyoufind-modal-readonly"
+                    />
                 </div>
                 <div className="didyoufind-modal-button-container">
                     <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>
 
                     <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button"
+                            data-testid="qa-didyoufind-submit-btn"
                             disabled={submitButtonDisabled}
                             onClick={submitFeedback}>
                         <span className="didYouFindModalSubmitBtn-label">
@@ -153,7 +170,11 @@ const Modal = props => {
                         </span>
                     </button>
 
-                    <button className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector" onClick={e => { onClose(e) } }>
+                    <button
+                        className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector"
+                        data-testid="qa-didyoufind-modal-close-btn"
+                        onClick={e => { onClose(e) } }
+                    >
                         <span className="didYouFindModalCloseBtn-label didYouFindModalCloseBtnLabelSelector">Close</span>
                     </button>
                 </div>
@@ -164,6 +185,20 @@ const Modal = props => {
     }
 };
 
+Modal.propTypes = {
+    dark: bool,
+    documentId: string,
+    documentName: string,
+    documentUrl: string,
+    onClose: func,
+    onSubmitFeedback: func,
+    searchTerm: string,
+    show: bool
+};
+
+Modal.defaultProps = {
+    dark: false,
+    show: false
+}
+
 export default Modal;
-
-

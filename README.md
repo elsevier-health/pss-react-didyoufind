@@ -5,5 +5,15 @@ that lets them give text feedback.
 The answers and feedback are submitted to a route that send them onto
 MixPanel
 
+# Styling
+`DidYouFind` relies on several Leyden style components. These must be included in the applications main `scss` file
+
+```sass
+@import '~@els/els-styleguide-core/scss/core'
+@import '~@els/els-styleguide-button/scss/button'
+@import '~@els/els-styleguide-link/scss/link'
+@import '~@els/els-styleguide-form-field/scss/form-field'
+```
+
 # Dark mode
-To render the didyoufind component in dark mode add ```data-dark-mode="true"``` to the attributes of the target element ```<div id="didyoufind" data-dark-mode="true" />```
+To render the didyoufind component in dark mode add ```darkMode``` prop to the DidYouFind component.
