@@ -53,10 +53,10 @@ const DidYouFind = (props) => {
                         Is this information what you were looking for?
                     </span>
                     <span className="didyoufind-form c-els-field__label" >
-                        <span className="didyoufind-form-field">
+                        <span className="didyoufind-form-field c-els-field c-els-field--radio">
                             <label>
                                 <input
-                                    className="radioYesSelector c-els-field__input c-els-field--radio"
+                                    className="radioYesSelector c-els-field__input"
                                     data-testid="qa-didyoufind-yes-radio"
                                     name="input-type-radio"
                                     type="radio"
@@ -65,8 +65,8 @@ const DidYouFind = (props) => {
                                         handleSelection("yes")
                                     }}
                                 />
-                                <span className="didyoufind-label labelYesSelector">
-                                    <span className="didyoufind-label-switch" />
+                                <span className="didyoufind-label labelYesSelector c-els-field__label-text">
+                                    <span className="didyoufind-label-switch c-els-field__switch" />
                                     Yes
                                 </span>
                             </label>
