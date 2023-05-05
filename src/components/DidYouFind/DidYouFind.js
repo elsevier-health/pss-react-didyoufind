@@ -35,6 +35,7 @@ const DidYouFind = (props) => {
 
     const onFeedbackSubmit = (event) => {
         setAnswer("yes");
+        setShowModal(false);
     };
 
     const className = classnames(
