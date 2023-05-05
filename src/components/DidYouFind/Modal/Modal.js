@@ -6,7 +6,7 @@ import axios from "axios";
 import logger from "../logger";
 
 import "./Modal.scss";
-import "@els/els-styleguide-core/images/icon-sprite-hmds.svg";
+import "@els/els-styleguide-core/images/icon-sprite.svg";
 
 const Modal = ({
     dark,
@@ -134,11 +134,11 @@ const Modal = ({
                 <div className="thanksForRespondingModal thanksForRespondingModalSelector">
                     Thanks for responding
                     <button
-                        className="didyoufind-modal-close-icon didYouFindCloseIconSelector"
+                        className="didyoufind-modal-close-icon didYouFindCloseIconSelector u-els-anchorize c-els-link c-els-link--with-icon"
                         data-testid="qa-didyoufind-modal-close-icon"
                         onClick={ e => { onClose(e) } }
                     >
-                        <svg className="didyoufind-icon-x">
+                        <svg className="didyoufind-icon-x c-els-link__icon o-els-icon-svg o-els-icon-svg--1x o-els-icon-svg--middle">
                             <use href={"#icon-sprite-hmds_icon__close"} />
                         </svg>
                     </button>
@@ -146,36 +146,36 @@ const Modal = ({
                 <div className="tellUsMoreLabel tellUsMoreLabelSelector">
                     Please tell us more about what you were looking for
                 </div>
-                <div className="tellUsMoreTextAreaContainer">
+                <div className="tellUsMoreTextAreaContainer c-els-field">
                     <textarea
                         onPaste={onPasteEntry}
                         onKeyUp={onTextEntry}
                         onScroll={onScroll}
-                        className="tellUsMoreTextArea tellUsMoreTextAreaSelector"
+                        className="tellUsMoreTextArea tellUsMoreTextAreaSelector c-els-field__input"
                         rows="10" />
                     <div contentEditable={true}
-                         className="tellUsMoreTextAreaReadOnly tellUsMoreTextAreaReadOnlySelector"
+                         className="tellUsMoreTextAreaReadOnly tellUsMoreTextAreaReadOnlySelector c-els-field__input"
                          data-testid="qa-didyoufind-modal-readonly"
                     />
                 </div>
                 <div className="didyoufind-modal-button-container">
                     <span className="overTheCharacterLimitSelector overTheCharacterLimit"></span>
 
-                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button"
+                    <button className="didYouFindModalSubmitBtn didYouFindModalSubmitBtnSelector c-els-button c-els-button--info"
                             data-testid="qa-didyoufind-submit-btn"
                             disabled={submitButtonDisabled}
                             onClick={submitFeedback}>
-                        <span className="didYouFindModalSubmitBtn-label">
+                        <span className="didYouFindModalSubmitBtn-label c-els-link__text">
                             Submit
                         </span>
                     </button>
 
                     <button
-                        className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector"
+                        className="didYouFindModalCloseBtn didYouFindModalCloseBtnSelector u-els-anchorize c-els-link c-els-link--with-icon"
                         data-testid="qa-didyoufind-modal-close-btn"
                         onClick={e => { onClose(e) } }
                     >
-                        <span className="didYouFindModalCloseBtn-label didYouFindModalCloseBtnLabelSelector">Close</span>
+                        <span className="didYouFindModalCloseBtn-label didYouFindModalCloseBtnLabelSelector c-els-link__text">Close</span>
                     </button>
                 </div>
             </div>

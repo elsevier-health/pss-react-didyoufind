@@ -52,11 +52,11 @@ const DidYouFind = (props) => {
                     <span className="didYouFindMessageSelector" >
                         Is this information what you were looking for?
                     </span>
-                    <span className="didyoufind-form" >
+                    <span className="didyoufind-form c-els-field__label" >
                         <span className="didyoufind-form-field">
                             <label>
                                 <input
-                                    className="radioYesSelector"
+                                    className="radioYesSelector c-els-field__input"
                                     data-testid="qa-didyoufind-yes-radio"
                                     name="input-type-radio"
                                     type="radio"
@@ -72,11 +72,11 @@ const DidYouFind = (props) => {
                             </label>
                         </span>
                     </span>
-                    <span className="didyoufind-form" >
-                        <span className="didyoufind-form-field">
+                    <span className="didyoufind-form c-els-field__label" >
+                        <span className="didyoufind-form-field c-els-field c-els-field--radio">
                             <label>
                                 <input
-                                    className="radioNoSelector"
+                                    className="radioNoSelector c-els-field__input"
                                     data-testid="qa-didyoufind-no-radio"
                                     name="input-type-radio"
                                     type="radio"
@@ -85,8 +85,8 @@ const DidYouFind = (props) => {
                                         handleSelection("no")
                                     }}
                                 />
-                                <span className="labelNoSelector didyoufind-label">
-                                    <span className="didyoufind-label-switch" />
+                                <span className="labelNoSelector didyoufind-label c-els-field__label-text">
+                                    <span className="didyoufind-label-switch c-els-field__switch" />
                                     No
                                 </span>
                             </label>
