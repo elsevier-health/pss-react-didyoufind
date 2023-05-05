@@ -56,7 +56,7 @@ const DidYouFind = (props) => {
                         <span className="didyoufind-form-field">
                             <label>
                                 <input
-                                    className="radioYesSelector c-els-field__input"
+                                    className="radioYesSelector c-els-field__input c-els-field--radio"
                                     data-testid="qa-didyoufind-yes-radio"
                                     name="input-type-radio"
                                     type="radio"
