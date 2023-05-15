@@ -51,7 +51,7 @@ const DidYouFind = (props) => {
             {answer === "" ?
                 <div>
                     <span className="didYouFindMessageSelector" >
-                        Is this information what you were looking for?
+                        Is this what you were looking for?
                     </span>
                     <span className="didyoufind-form c-els-field__label" >
                         <span className="didyoufind-form-field c-els-field c-els-field--radio">
