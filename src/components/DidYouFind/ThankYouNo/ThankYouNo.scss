@@ -2,10 +2,6 @@
 
 .didYouFindNo {
   button.didyoufind-feedback-btn {
-    @extend .u-els-anchorize;
-    @extend .c-els-link;
-    @extend .c-els-link--with-icon;
-
     margin-left: 16px;
     background: none!important;
     border: none;
@@ -17,21 +13,17 @@
 
     &:hover {
       color: $link-hover-color;
+
+      span {
+        color: $link-hover-color;
+      }
     }
 
     &:focus {
       outline: none;
     }
 
-    svg {
-      @extend .c-els-link__icon;
-      @extend .o-els-icon-svg;
-      @extend .o-els-icon-svg--1x;
-      @extend .o-els-icon-svg--middle;
-    }
-
     span {
-      @extend .c-els-link__text;
       color: $link-color;
     }
   }

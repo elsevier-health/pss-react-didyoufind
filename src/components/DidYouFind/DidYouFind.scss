@@ -7,27 +7,12 @@
   height: 26px;
 
   .didyoufind-form {
-    @extend .c-els-field__label;
     color: $link-color;
     display: inline-block;
     padding-left: 16px;
 
-    input {
-      @extend .c-els-field__input;
-    }
-
-    span.didyoufind-form-field {
-      @extend .c-els-field;
-      @extend .c-els-field--radio;
-    }
-
     span.didyoufind-label {
-      @extend .c-els-field__label-text;
       font-size: 16px !important;
-
-      span.didyoufind-label-switch {
-        @extend .c-els-field__switch;
-      }
     }
 
     &:hover {

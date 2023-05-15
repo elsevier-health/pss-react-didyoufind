@@ -1,17 +1,20 @@
 {
   "name": "@pss/pss-react-didyoufind",
-  "version": "0.1.22",
+  "version": "2.0.4",
   "description": "didyoufind",
-  "main": "build/didyoufind.js",
+  "main": "src/index.js",
   "scripts": {
     "analyze": "source-map-explorer build/didyoufind.js",
     "build": "webpack --config=webpack.prod.js",
     "build-dev": "webpack --config=webpack.dev.js",
+    "prepare": "npm run test",
     "start": "webpack-dev-server",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
+  "engine": ">=16",
   "files": [
-    "build"
+    "src"
   ],
   "keywords": [],
   "author": "Elsevier",
@@ -22,40 +25,32 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@babel/runtime": "^7.10.4",
-    "@els/els-styleguide-button": "0.0.22",
-    "@els/els-styleguide-core": "0.0.88",
-    "@els/els-styleguide-form-field": "^0.2.7",
-    "@els/els-styleguide-link": "^0.1.12",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^4.1.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.3.0",
-    "jest": "^26.2.1",
-    "mini-css-extract-plugin": "^0.9.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "react": "^16.13.1",
-    "react-app-polyfill": "^1.0.6",
-    "react-dom": "^16.13.1",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-test-renderer": "^16.13.1",
-    "sass": "^1.26.10",
-    "sass-loader": "^9.0.2",
-    "style-loader": "^1.2.1",
-    "svg-inline-loader": "^0.8.2",
-    "svg-sprite-loader": "^5.0.0",
-    "svgo-loader": "^2.2.1",
-    "webpack": "^4.44.1",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.0.9"
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.4.3",
+    "babel-polyfill": "^6.26.0",
+    "classnames": "^2.3.2",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "react-test-renderer": "^16.13.1"
   },
   "dependencies": {
     "@pss/pss-styleguide-dark": "^1.0.1",
     "axios": "^0.21.1"
+  },
+  "peerDependencies": {
+    "@els/els-styleguide-button": "^1.0.0",
+    "@els/els-styleguide-core": "^4.0.0",
+    "@els/els-styleguide-form-field": "^3.0.0",
+    "@els/els-styleguide-link": "^1.0.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "6.3.0",
+    "sass": "^1.26.10"
+  },
+  "overrides": {
+    "@els/els-styleguide-core": "$@els/els-styleguide-core",
+    "react": "$react"
   }
 }

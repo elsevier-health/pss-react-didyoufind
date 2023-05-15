@@ -12,10 +12,6 @@
   z-index: 1;
 
   button.didyoufind-modal-close-icon {
-    @extend .u-els-anchorize;
-    @extend .c-els-link;
-    @extend .c-els-link--with-icon;
-
     color: $link-color;
     font-family: $els-font-base;
     font-size: $els-fs-base;
@@ -30,13 +26,6 @@
       svg {
         color: $link-hover-color;
       }
-    }
-
-    svg {
-      @extend .c-els-link__icon;
-      @extend .o-els-icon-svg;
-      @extend .o-els-icon-svg--1x;
-      @extend .o-els-icon-svg--middle;
     }
   }
 
@@ -57,10 +46,6 @@
     }
 
     .didYouFindModalCloseBtn {
-      @extend .u-els-anchorize;
-      @extend .c-els-link;
-      @extend .c-els-link--with-icon;
-
       font-family: $els-font-base;
       font-size: $els-fs-base;
       float: right;
@@ -76,15 +61,11 @@
       }
 
       span.didYouFindModalCloseBtn-label {
-        @extend .c-els-link__text;
         color: $link-color;
       }
     }
 
     .didYouFindModalSubmitBtn {
-      @extend .c-els-button;
-      @extend .c-els-button--info;
-
       font-size: $els-fs-base;
       float: right;
 
@@ -92,10 +73,6 @@
         color: $submit-button-disabled-color;
         background-color: $submit-button-disabled-background;
         border-color: $submit-button-disabled-border;
-      }
-
-      span.didYouFindModalSubmitBtn-label {
-        @extend .c-els-link__text;
       }
     }
   }
@@ -109,20 +86,13 @@
   }
 
   .tellUsMoreTextAreaContainer {
-    @extend .c-els-field;
-
     padding-right: 16px;
     padding-left: 16px;
     position: relative;
     width: 100%;
     height: 125px;
 
-    .tellUsMoreTextAreaLabel {
-      @extend .c-els-field__label;
-    }
-
     .tellUsMoreTextArea, .tellUsMoreTextAreaReadOnly {
-      @extend .c-els-field__input;
       background-color: $modal-input-background;
       font-family: $els-font-base;
       font-size: $els-fs-base;

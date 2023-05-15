@@ -1,38 +1,8 @@
 $path-to-els-core-logos: '~@els/els-component-footer-react/module/assets/images/';
 $path-to-els-core-fonts: '~@els/els-styleguide-core/fonts';
 
-// Import HMDS Style guide core. NOTE - We can't pull in the core.scss file because it overrides site wide styling.
-@import '~@els/els-styleguide-core/scss/settings/_settings.all';
-
-@import '~@els/els-styleguide-core/scss/tools/_tools.all';
-
-@import '~@els/els-styleguide-core/scss/scopes/_scope.non-authored-content';
-@import '~@els/els-styleguide-core/scss/scopes/_scope.authored-content';
-@import '~@els/els-styleguide-core/scss/scopes/_scope.no-focus';
-
-@import "~@els/els-styleguide-core/scss/objects/_objects.layouts";
-@import "~@els/els-styleguide-core/scss/objects/_objects.flex-layouts";
-@import "~@els/els-styleguide-core/scss/objects/_objects.table-layouts";
-@import "~@els/els-styleguide-core/scss/objects/_objects.containers";
-@import "~@els/els-styleguide-core/scss/objects/_objects.icons";
-
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.accessibility";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.alignment";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.buttons";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.colors";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.display";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.fonts";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.height";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.spacing";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.text";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.widths";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.shame";
-@import "~@els/els-styleguide-core/scss/utilities/_utilities.transform";
-// ---- end style guide core ----
-
-@import '~@els/els-styleguide-button/scss/component.button';
-@import '~@els/els-styleguide-link/scss/component.link';
-@import '~@els/els-styleguide-form-field/scss/component.form-field';
+@import '~@els/els-styleguide-core/scss/settings/colors';
+@import '~@els/els-styleguide-core/scss/settings/typography';
 @import '~@pss/pss-styleguide-dark/src/colors';
 
 // font sizing with rem doesn't play nice with bootstrap. Overriding the font size variables.
@@ -40,7 +10,7 @@ $els-fs-base: 16px;
 $els-fs-h2:   30px;
 
 $message-color: $els-color-extended-orange-5;
-$message-color-dark: $els-color-extended-orange-5;
+$message-color-dark: $els-color-n0;
 
 $link-color: $els-color-secondary-on-dark;
 $link-color-dark: $els-color-extended-blue-2;
