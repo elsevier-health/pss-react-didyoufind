@@ -39,7 +39,6 @@
     "@els/els-styleguide-core": "^4.11.1",
     "@els/els-styleguide-form-field": "^4.1.1",
     "@els/els-styleguide-link": "^1.2.0",
-    "@pss/pss-styleguide-dark": "^1.0.1",
     "axios": "^1.4.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
