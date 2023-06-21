@@ -1,4 +1,4 @@
-@use "../../../App";
+@use "../../../variables";
 
 .didYouFindNo {
   button.didyoufind-feedback-btn {
@@ -6,16 +6,14 @@
     background: none!important;
     border: none;
     padding: 0!important;
-    font-family: App.$pss-fs-base;
-    font-size: App.$pss-fs-base;
-    color: App.$link-color;
+    color: variables.$link-color;
     cursor: pointer;
 
     &:hover {
-      color: App.$link-hover-color;
+      color: variables.$link-hover-color;
 
       span {
-        color: App.$link-hover-color;
+        color: variables.$link-hover-color;
       }
     }
 
@@ -24,21 +22,21 @@
     }
 
     span {
-      color: App.$link-color;
+      color: variables.$link-color;
     }
   }
 
   &.dark {
     button.didyoufind-feedback-btn {
-      color: App.$link-color-dark;
+      color: variables.$link-color-dark;
       span {
-        color: App.$link-color-dark;
+        color: variables.$link-color-dark;
       }
 
       &:hover {
-        color: App.$link-hover-color-dark;
+        color: variables.$link-hover-color-dark;
         span {
-          color: App.$link-hover-color-dark;
+          color: variables.$link-hover-color-dark;
         }
       }
     }

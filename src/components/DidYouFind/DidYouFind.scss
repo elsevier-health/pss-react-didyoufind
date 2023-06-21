@@ -1,13 +1,11 @@
-@use "../../App";
+@use "../../variables";
 
 .didyoufind {
-  font-family: App.$pss-fs-base;
-  font-size: App.$pss-fs-base;
-  color: App.$message-color;
+  color: variables.$message-color;
   height: 26px;
 
   .didyoufind-form {
-    color: App.$link-color;
+    color: variables.$link-color;
     display: inline-block;
     padding-left: 16px;
 
@@ -16,25 +14,25 @@
     }
 
     &:hover {
-      color: App.$link-hover-color;
+      color: variables.$link-hover-color;
 
       .didyoufind-label-switch {
-        border: .125rem solid App.$link-hover-color !important;
+        border: .125rem solid variables.$link-hover-color !important;
       }
     }
   }
 
   &.dark {
-    color: App.$message-color-dark;
+    color: variables.$message-color-dark;
 
     .didyoufind-form {
-      color: App.$link-color-dark;
+      color: variables.$link-color-dark;
 
       &:hover {
-        color: App.$link-hover-color-dark;
+        color: variables.$link-hover-color-dark;
 
         .didyoufind-label-switch {
-          border: .125rem solid App.$link-hover-color-dark !important;
+          border: .125rem solid variables.$link-hover-color-dark !important;
         }
       }
     }

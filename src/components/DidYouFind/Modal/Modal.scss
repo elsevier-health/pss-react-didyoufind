@@ -1,4 +1,5 @@
-@use "../../../App";
+@use "../../../variables";
+@use "node_modules/@els/els-styleguide-core/scss/tools";
 
 .didyoufind-modal {
   width: 700px;
@@ -6,33 +7,31 @@
   min-width: 700px;
   position: fixed;
   left: 400px;
-  background-color: App.$modal-background;
-  border: 20px solid App.$modal-border;
+  background-color: variables.$modal-background;
+  border: 20px solid variables.$modal-border;
   background-clip:padding-box;
   z-index: 1;
 
   button.didyoufind-modal-close-icon {
-    color: App.$link-color;
-    font-family: App.$els-fs-base;
-    font-size: App.$els-fs-base;
+    color: variables.$link-color;
     float: right;
     padding: 6px 0 8px 0px;
     border-bottom: 2px solid transparent;
 
     &:hover {
-      color: App.$link-hover-color;
-      border-color: App.$link-hover-color;
+      color: variables.$link-hover-color;
+      border-color: variables.$link-hover-color;
 
       svg {
-        color: App.$link-hover-color;
+        color: variables.$link-hover-color;
       }
     }
   }
 
   .thanksForRespondingModal {
-    font-family: App.$els-font-base;
-    font-size: App.$els-fs-h2;
-    color: App.$modal-header-text;
+    font-family: tools.$els-font-base;
+    font-size: tools.$els-fs-h2;
+    color: variables.$modal-header-text;
     padding: 10px 16px 10px 10px;
   }
 
@@ -41,15 +40,13 @@
     height: 72px;
 
     .overTheCharacterLimit {
-      color: App.$modal-over-limit-text;
+      color: variables.$modal-over-limit-text;
       display: inline-block;
     }
 
     .didYouFindModalCloseBtn {
-      font-family: App.$els-font-base;
-      font-size: App.$els-fs-base;
       float: right;
-      color: App.$link-color;
+      color: variables.$link-color;
       background: none!important;
       border: none;
       margin-right: 16px;
@@ -57,31 +54,29 @@
       margin-top: 3px;
 
       &:hover {
-        color: App.$link-hover-color;
+        color: variables.$link-hover-color;
       }
 
       span.didYouFindModalCloseBtn-label {
-        color: App.$link-color;
+        color: variables.$link-color;
       }
     }
 
     .didYouFindModalSubmitBtn {
-      font-size: App.$els-fs-base;
       float: right;
 
       &:disabled {
-        color: App.$submit-button-disabled-color;
-        background-color: App.$submit-button-disabled-background;
-        border-color: App.$submit-button-disabled-border;
+        color: variables.$submit-button-disabled-color;
+        background-color: variables.$submit-button-disabled-background;
+        border-color: variables.$submit-button-disabled-border;
       }
     }
   }
 
   .tellUsMoreLabel {
-    font-family: App.$els-font-base;
     font-weight: normal;
-    color: App.$modal-header-text;
-    background-color: App.$modal-background;
+    color: variables.$modal-header-text;
+    background-color: variables.$modal-background;
     padding: 10px 16px;
   }
 
@@ -93,10 +88,8 @@
     height: 125px;
 
     .tellUsMoreTextArea, .tellUsMoreTextAreaReadOnly {
-      background-color: App.$modal-input-background;
-      font-family: App.$els-font-base;
-      font-size: App.$els-fs-base;
-      border-bottom-color: App.$modal-input-border;
+      background-color: variables.$modal-input-background;
+      border-bottom-color: variables.$modal-input-border;
       position: absolute;
       height: 125px;
       max-height: 125px;
@@ -114,95 +107,95 @@
     .tellUsMoreTextArea {
       color: transparent;
       background: transparent;
-      caret-color: App.$modal-input-color;
+      caret-color: variables.$modal-input-color;
     }
 
     .tellUsMoreTextAreaReadOnly {
       z-index: -99;
-      color: App.$modal-input-color;
+      color: variables.$modal-input-color;
       padding-top: 8px;
       padding-bottom: 8px;
     }
 
     span.highlight {
-      color: App.$modal-input-highlight;
+      color: variables.$modal-input-highlight;
     }
 
   }
 
   &.dark {
-    background-color: App.$modal-background-dark;
-    border: 20px solid App.$modal-border-dark;
+    background-color: variables.$modal-background-dark;
+    border: 20px solid variables.$modal-border-dark;
 
     button.didyoufind-modal-close-icon {
-      color: App.$link-color-dark;
+      color: variables.$link-color-dark;
 
       &:hover {
-        color: App.$link-hover-color-dark;
-        border-color: App.$link-hover-color-dark;
+        color: variables.$link-hover-color-dark;
+        border-color: variables.$link-hover-color-dark;
 
         svg {
-          color: App.$link-hover-color-dark;
+          color: variables.$link-hover-color-dark;
         }
       }
     }
 
     .thanksForRespondingModal {
-      color: App.$modal-header-text-dark;
+      color: variables.$modal-header-text-dark;
     }
 
     .didyoufind-modal-button-container {
 
       .overTheCharacterLimit {
-        color: App.$modal-over-limit-text-dark;
+        color: variables.$modal-over-limit-text-dark;
       }
 
       .didYouFindModalCloseBtn {
-        color: App.$link-color-dark;
+        color: variables.$link-color-dark;
         span.didYouFindModalCloseBtn-label {
-          color: App.$link-color-dark;
+          color: variables.$link-color-dark;
         }
 
         &:hover {
-          color: App.$link-hover-color-dark;
+          color: variables.$link-hover-color-dark;
           span.didYouFindModalCloseBtn-label {
-            color: App.$link-hover-color-dark;
+            color: variables.$link-hover-color-dark;
           }
         }
       }
 
       .didYouFindModalSubmitBtn {
         &:disabled {
-          color: App.$submit-button-disabled-color;
-          background-color: App.$submit-button-disabled-background;
-          border-color: App.$submit-button-disabled-border;
+          color: variables.$submit-button-disabled-color;
+          background-color: variables.$submit-button-disabled-background;
+          border-color: variables.$submit-button-disabled-border;
         }
       }
     }
 
     .tellUsMoreLabel {
-      color: App.$modal-header-text-dark;
-      background-color: App.$modal-background-dark;
+      color: variables.$modal-header-text-dark;
+      background-color: variables.$modal-background-dark;
     }
 
     .tellUsMoreTextAreaContainer {
       .tellUsMoreTextArea, .tellUsMoreTextAreaReadOnly {
-        background-color: App.$modal-input-background-dark;
-        border-bottom-color: App.$modal-input-border-dark;
+        background-color: variables.$modal-input-background-dark;
+        border-bottom-color: variables.$modal-input-border-dark;
       }
 
       .tellUsMoreTextArea {
         color: transparent;
         background: transparent;
-        caret-color: App.$modal-input-color-dark;
+        caret-color: variables.$modal-input-color-dark;
       }
 
       .tellUsMoreTextAreaReadOnly {
-        color: App.$modal-input-color-dark;
+        color: variables.$modal-input-color-dark;
       }
 
       span.highlight {
-        color: App.$modal-input-highlight-dark;
+        color: variables.$modal-input-highlight-dark;
       }
     }
   }

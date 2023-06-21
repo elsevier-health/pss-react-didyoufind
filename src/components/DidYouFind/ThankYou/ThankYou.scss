@@ -1,9 +1,9 @@
-@use "../../../App";
+@use "../../../variables";
 
 .didYouFindYes {
-  color: App.$message-color;
+  color: variables.$message-color;
 
   &.dark {
-    color: App.$message-color-dark;
+    color: variables.$message-color-dark;
   }
 }

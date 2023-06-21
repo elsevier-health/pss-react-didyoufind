@@ -1,0 +1,73 @@
+@use "node_modules/@els/els-styleguide-core/scss/tools";
+
+// ----- PSS DARK MODE --------------------------------------------------------
+
+// Basics
+$pss-color-primary:   tools.$els-color-primary-on-dark !default;
+$pss-color-secondary: tools.$els-color-extended-blue-4 !default;
+
+// Messaging
+$pss-color-info:    tools.$els-color-extended-blue-4 !default;
+$pss-color-confirm: tools.$els-color-extended-green-6 !default;
+$pss-color-warn:    tools.$els-color-warn-on-dark !default;
+
+// FOCUS
+$pss-color-focus: $pss-color-primary !default;
+
+// New Neutrals
+$pss-color-n1: #eeeeee !default;
+$pss-color-n2: #e2e2e2 !default;
+$pss-color-n4: #b9b9b9 !default;
+$pss-color-n10:    #494949 !default;
+$pss-color-n11:    #393939 !default;
+$pss-color-n12:    #2e2e2e !default;
+$pss-color-n13:    #121212 !default;
+
+// App variables
+
+$message-color: tools.$els-color-extended-orange-5;
+$message-color-dark: tools.$els-color-n0;
+
+$link-color: tools.$els-color-secondary-on-dark;
+$link-color-dark: tools.$els-color-extended-blue-2;
+
+$link-hover-color: tools.$els-color-primary;
+$link-hover-color-dark: $pss-color-primary;
+
+$modal-background: tools.$els-color-n9;
+$modal-background-dark: tools.$els-color-n10;
+
+$modal-border: rgba(tools.$els-color-n9, .5);
+$modal-border-dark: rgba($pss-color-n12, .5);
+
+$modal-header-text: tools.$els-color-n1;
+$modal-header-text-dark: tools.$els-color-n0;
+
+$modal-over-limit-text: tools.$els-color-extended-orange-4;
+$modal-over-limit-text-dark: tools.$els-color-extended-orange-5;
+
+$modal-input-highlight: red;
+$modal-input-highlight-dark: $pss-color-warn;
+
+$modal-input-color: tools.$els-color-n10;
+$modal-input-color-dark: tools.$els-color-n0;
+
+
+$modal-input-background: tools.$els-color-n0;
+$modal-input-background-dark: tools.$els-color-n8;
+
+$modal-input-border: tools.$els-color-n10;
+$modal-input-border-dark: $pss-color-primary;
+
+$submit-button-color: tools.$els-color-n10;
+$submit-button-color-dark: tools.$els-color-n0;
+$submit-button-background-dark: tools.$els-color-n10;
+$submit-button-border-dark: tools.$els-color-n0;
+
+$submit-button-disabled-color: tools.$els-color-n1;
+$submit-button-disabled-background: tools.$els-color-n7;
+$submit-button-disabled-border: tools.$els-color-n7;
+
+$submit-button-disabled-color-dark: tools.$els-color-n3;
+$submit-button-disabled-background-dark: tools.$els-color-n10;
+$submit-button-disabled-border-dark: tools.$els-color-n3;
