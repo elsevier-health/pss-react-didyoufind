@@ -1,4 +1,4 @@
-@import "../../../App";
+@use "../../../App";
 
 .didYouFindNo {
   button.didyoufind-feedback-btn {
@@ -6,16 +6,16 @@
     background: none!important;
     border: none;
     padding: 0!important;
-    font-family: $els-font-base;
-    font-size: $els-fs-base;
-    color: $link-color;
+    font-family: App.$els-font-base;
+    font-size: App.$els-fs-base;
+    color: App.$link-color;
     cursor: pointer;
 
     &:hover {
-      color: $link-hover-color;
+      color: App.$link-hover-color;
 
       span {
-        color: $link-hover-color;
+        color: App.$link-hover-color;
       }
     }
 
@@ -24,21 +24,21 @@
     }
 
     span {
-      color: $link-color;
+      color: App.$link-color;
     }
   }
 
   &.dark {
     button.didyoufind-feedback-btn {
-      color: $link-color-dark;
+      color: App.$link-color-dark;
       span {
-        color: $link-color-dark;
+        color: App.$link-color-dark;
       }
 
       &:hover {
-        color: $link-hover-color-dark;
+        color: App.$link-hover-color-dark;
         span {
-          color: $link-hover-color-dark;
+          color: App.$link-hover-color-dark;
         }
       }
     }

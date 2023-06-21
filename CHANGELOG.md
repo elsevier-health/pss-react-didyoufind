@@ -7,6 +7,11 @@ This component adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased - X.Y.Z] - YYYY-MM-DD
 ---
+## [2.1.0] - 2023-06-21
+### Changed
+- upgraded Leyden components
+- Switched sass to @use and @forward
+---
 ## [2.0.0] - 2023-05-02
 ### Breaking Changes
 The module now exports a React component that can be used in React apps instead of a standalone bundle.

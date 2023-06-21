@@ -1,4 +1,4 @@
-@import "../../../App";
+@use "../../../App";
 
 .didyoufind-modal {
   width: 700px;
@@ -6,33 +6,33 @@
   min-width: 700px;
   position: fixed;
   left: 400px;
-  background-color: $modal-background;
+  background-color: App.$modal-background;
   border: 20px solid $modal-border;
   background-clip:padding-box;
   z-index: 1;
 
   button.didyoufind-modal-close-icon {
-    color: $link-color;
-    font-family: $els-font-base;
-    font-size: $els-fs-base;
+    color: App.$link-color;
+    font-family: App.$els-font-base;
+    font-size: App.$els-fs-base;
     float: right;
     padding: 6px 0 8px 0px;
     border-bottom: 2px solid transparent;
 
     &:hover {
-      color: $link-hover-color;
-      border-color: $link-hover-color;
+      color: App.$link-hover-color;
+      border-color: App.$link-hover-color;
 
       svg {
-        color: $link-hover-color;
+        color: App.$link-hover-color;
       }
     }
   }
 
   .thanksForRespondingModal {
-    font-family: $els-font-base;
-    font-size: $els-fs-h2;
-    color: $modal-header-text;
+    font-family: App.$els-font-base;
+    font-size: App.$els-fs-h2;
+    color: App.$modal-header-text;
     padding: 10px 16px 10px 10px;
   }
 
@@ -41,15 +41,15 @@
     height: 72px;
 
     .overTheCharacterLimit {
-      color: $modal-over-limit-text;
+      color: App.$modal-over-limit-text;
       display: inline-block;
     }
 
     .didYouFindModalCloseBtn {
-      font-family: $els-font-base;
-      font-size: $els-fs-base;
+      font-family: App.$els-font-base;
+      font-size: App.$els-fs-base;
       float: right;
-      color: $link-color;
+      color: App.$link-color;
       background: none!important;
       border: none;
       margin-right: 16px;
@@ -57,31 +57,31 @@
       margin-top: 3px;
 
       &:hover {
-        color: $link-hover-color;
+        color: App.$link-hover-color;
       }
 
       span.didYouFindModalCloseBtn-label {
-        color: $link-color;
+        color: App.$link-color;
       }
     }
 
     .didYouFindModalSubmitBtn {
-      font-size: $els-fs-base;
+      font-size: App.$els-fs-base;
       float: right;
 
       &:disabled {
-        color: $submit-button-disabled-color;
-        background-color: $submit-button-disabled-background;
-        border-color: $submit-button-disabled-border;
+        color: App.$submit-button-disabled-color;
+        background-color: App.$submit-button-disabled-background;
+        border-color: App.$submit-button-disabled-border;
       }
     }
   }
 
   .tellUsMoreLabel {
-    font-family: $els-font-base;
+    font-family: App.$els-font-base;
     font-weight: normal;
-    color: $modal-header-text;
-    background-color: $modal-background;
+    color: App.$modal-header-text;
+    background-color: App.$modal-background;
     padding: 10px 16px;
   }
 
@@ -93,10 +93,10 @@
     height: 125px;
 
     .tellUsMoreTextArea, .tellUsMoreTextAreaReadOnly {
-      background-color: $modal-input-background;
-      font-family: $els-font-base;
-      font-size: $els-fs-base;
-      border-bottom-color: $modal-input-border;
+      background-color: App.$modal-input-background;
+      font-family: App.$els-font-base;
+      font-size: App.$els-fs-base;
+      border-bottom-color: App.$modal-input-border;
       position: absolute;
       height: 125px;
       max-height: 125px;
@@ -114,95 +114,95 @@
     .tellUsMoreTextArea {
       color: transparent;
       background: transparent;
-      caret-color: $modal-input-color;
+      caret-color: App.$modal-input-color;
     }
 
     .tellUsMoreTextAreaReadOnly {
       z-index: -99;
-      color: $modal-input-color;
+      color: App.$modal-input-color;
       padding-top: 8px;
       padding-bottom: 8px;
     }
 
     span.highlight {
-      color: $modal-input-highlight;
+      color: App.$modal-input-highlight;
     }
 
   }
 
   &.dark {
-    background-color: $modal-background-dark;
-    border: 20px solid $modal-border-dark;
+    background-color: App.$modal-background-dark;
+    border: 20px solid App.$modal-border-dark;
 
     button.didyoufind-modal-close-icon {
-      color: $link-color-dark;
+      color: App.$link-color-dark;
 
       &:hover {
-        color: $link-hover-color-dark;
-        border-color: $link-hover-color-dark;
+        color: App.$link-hover-color-dark;
+        border-color: App.$link-hover-color-dark;
 
         svg {
-          color: $link-hover-color-dark;
+          color: App.$link-hover-color-dark;
         }
       }
     }
 
     .thanksForRespondingModal {
-      color: $modal-header-text-dark;
+      color: App.$modal-header-text-dark;
     }
 
     .didyoufind-modal-button-container {
 
       .overTheCharacterLimit {
-        color: $modal-over-limit-text-dark;
+        color: App.$modal-over-limit-text-dark;
       }
 
       .didYouFindModalCloseBtn {
-        color: $link-color-dark;
+        color: App.$link-color-dark;
         span.didYouFindModalCloseBtn-label {
-          color: $link-color-dark;
+          color: App.$link-color-dark;
         }
 
         &:hover {
-          color: $link-hover-color-dark;
+          color: App.$link-hover-color-dark;
           span.didYouFindModalCloseBtn-label {
-            color: $link-hover-color-dark;
+            color: App.$link-hover-color-dark;
           }
         }
       }
 
       .didYouFindModalSubmitBtn {
         &:disabled {
-          color: $submit-button-disabled-color;
-          background-color: $submit-button-disabled-background;
-          border-color: $submit-button-disabled-border;
+          color: App.$submit-button-disabled-color;
+          background-color: App.$submit-button-disabled-background;
+          border-color: App.$submit-button-disabled-border;
         }
       }
     }
 
     .tellUsMoreLabel {
-      color: $modal-header-text-dark;
-      background-color: $modal-background-dark;
+      color: App.$modal-header-text-dark;
+      background-color: App.$modal-background-dark;
     }
 
     .tellUsMoreTextAreaContainer {
       .tellUsMoreTextArea, .tellUsMoreTextAreaReadOnly {
-        background-color: $modal-input-background-dark;
-        border-bottom-color: $modal-input-border-dark;
+        background-color: App.$modal-input-background-dark;
+        border-bottom-color: App.$modal-input-border-dark;
       }
 
       .tellUsMoreTextArea {
         color: transparent;
         background: transparent;
-        caret-color: $modal-input-color-dark;
+        caret-color: App.$modal-input-color-dark;
       }
 
       .tellUsMoreTextAreaReadOnly {
-        color: $modal-input-color-dark;
+        color: App.$modal-input-color-dark;
       }
 
       span.highlight {
-        color: $modal-input-highlight-dark;
+        color: App.$modal-input-highlight-dark;
       }
     }
   }

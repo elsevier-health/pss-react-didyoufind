@@ -1,13 +1,13 @@
-@import "../../App";
+@use "../../App";
 
 .didyoufind {
-  font-family: $els-font-base;
-  font-size: $els-fs-base;
-  color: $message-color;
+  font-family: App.$els-font-base;
+  font-size: App.$els-fs-base;
+  color: App.$message-color;
   height: 26px;
 
   .didyoufind-form {
-    color: $link-color;
+    color: App.$link-color;
     display: inline-block;
     padding-left: 16px;
 
@@ -16,25 +16,25 @@
     }
 
     &:hover {
-      color: $link-hover-color;
+      color: App.$link-hover-color;
 
       .didyoufind-label-switch {
-        border: .125rem solid $link-hover-color !important;
+        border: .125rem solid App.$link-hover-color !important;
       }
     }
   }
 
   &.dark {
-    color: $message-color-dark;
+    color: App.$message-color-dark;
 
     .didyoufind-form {
-      color: $link-color-dark;
+      color: App.$link-color-dark;
 
       &:hover {
-        color: $link-hover-color-dark;
+        color: App.$link-hover-color-dark;
 
         .didyoufind-label-switch {
-          border: .125rem solid $link-hover-color-dark !important;
+          border: .125rem solid App.$link-hover-color-dark !important;
         }
       }
     }

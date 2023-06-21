@@ -1,9 +1,9 @@
-@import "../../../App";
+@use "../../../App";
 
 .didYouFindYes {
-  color: $message-color;
+  color: App.$message-color;
 
   &.dark {
-    color: $message-color-dark;
+    color: App.$message-color-dark;
   }
 }

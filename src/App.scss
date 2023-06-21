@@ -1,57 +1,59 @@
 $path-to-els-core-logos: '~@els/els-component-footer-react/module/assets/images/';
 $path-to-els-core-fonts: '~@els/els-styleguide-core/fonts';
 
-@import '~@els/els-styleguide-core/scss/settings/colors';
-@import '~@els/els-styleguide-core/scss/settings/typography';
-@import '~@pss/pss-styleguide-dark/src/colors';
+@forward "node_modules/@els/els-styleguide-core/scss/tools";
+@forward "node_modules/@pss/pss-styleguide-dark/src/colors";
+
+@use "node_modules/@pss/pss-styleguide-dark/src/colors" as pss-colors;
+@use "node_modules/@els/els-styleguide-core/scss/tools";
 
 // font sizing with rem doesn't play nice with bootstrap. Overriding the font size variables.
 $els-fs-base: 16px;
 $els-fs-h2:   30px;
 
-$message-color: $els-color-extended-orange-5;
-$message-color-dark: $els-color-n0;
+$message-color: tools.$els-color-extended-orange-5;
+$message-color-dark: tools.$els-color-n0;
 
-$link-color: $els-color-secondary-on-dark;
-$link-color-dark: $els-color-extended-blue-2;
+$link-color: tools.$els-color-secondary-on-dark;
+$link-color-dark: tools.$els-color-extended-blue-2;
 
-$link-hover-color: $els-color-primary;
-$link-hover-color-dark: $pss-color-primary;
+$link-hover-color: tools.$els-color-primary;
+$link-hover-color-dark: pss-colors.$pss-color-primary;
 
-$modal-background: $els-color-n9;
-$modal-background-dark: $els-color-n10;
+$modal-background: tools.$els-color-n9;
+$modal-background-dark: tools.$els-color-n10;
 
-$modal-border: rgba($els-color-n9, .5);
-$modal-border-dark: rgba($pss-color-n12, .5);
+$modal-border: rgba(tools.$els-color-n9, .5);
+$modal-border-dark: rgba(pss-colors.$pss-color-n12, .5);
 
-$modal-header-text: $els-color-n1;
-$modal-header-text-dark: $els-color-n0;
+$modal-header-text: tools.$els-color-n1;
+$modal-header-text-dark: tools.$els-color-n0;
 
-$modal-over-limit-text: $els-color-extended-orange-4;
-$modal-over-limit-text-dark: $els-color-extended-orange-5;
+$modal-over-limit-text: tools.$els-color-extended-orange-4;
+$modal-over-limit-text-dark: tools.$els-color-extended-orange-5;
 
 $modal-input-highlight: red;
-$modal-input-highlight-dark: $pss-color-warn;
+$modal-input-highlight-dark: pss-colors.$pss-color-warn;
 
-$modal-input-color: $els-color-n10;
-$modal-input-color-dark: $els-color-n0;
+$modal-input-color: tools.$els-color-n10;
+$modal-input-color-dark: tools.$els-color-n0;
 
 
-$modal-input-background: $els-color-n0;
-$modal-input-background-dark: $els-color-n8;
+$modal-input-background: tools.$els-color-n0;
+$modal-input-background-dark: tools.$els-color-n8;
 
-$modal-input-border: $els-color-n10;
-$modal-input-border-dark: $pss-color-primary;
+$modal-input-border: tools.$els-color-n10;
+$modal-input-border-dark: pss-colors.$pss-color-primary;
 
-$submit-button-color: $els-color-n10;
-$submit-button-color-dark: $els-color-n0;
-$submit-button-background-dark: $els-color-n10;
-$submit-button-border-dark: $els-color-n0;
+$submit-button-color: tools.$els-color-n10;
+$submit-button-color-dark: tools.$els-color-n0;
+$submit-button-background-dark: tools.$els-color-n10;
+$submit-button-border-dark: tools.$els-color-n0;
 
-$submit-button-disabled-color: $els-color-n1;
-$submit-button-disabled-background: $els-color-n7;
-$submit-button-disabled-border: $els-color-n7;
+$submit-button-disabled-color: tools.$els-color-n1;
+$submit-button-disabled-background: tools.$els-color-n7;
+$submit-button-disabled-border: tools.$els-color-n7;
 
-$submit-button-disabled-color-dark: $els-color-n3;
-$submit-button-disabled-background-dark: $els-color-n10;
-$submit-button-disabled-border-dark: $els-color-n3;
+$submit-button-disabled-color-dark: tools.$els-color-n3;
+$submit-button-disabled-background-dark: tools.$els-color-n10;
+$submit-button-disabled-border-dark: tools.$els-color-n3;
