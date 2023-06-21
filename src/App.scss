@@ -4,7 +4,7 @@ $path-to-els-core-fonts: '~@els/els-styleguide-core/fonts';
 @forward "node_modules/@els/els-styleguide-core/scss/tools";
 @forward "node_modules/@pss/pss-styleguide-dark/src/colors";
 
-@use "node_modules/@pss/pss-styleguide-dark/src/colors" as pss-colors;
+@use "node_modules/@pss/pss-styleguide-dark/src/colors";
 @use "node_modules/@els/els-styleguide-core/scss/tools";
 
 // font sizing with rem doesn't play nice with bootstrap. Overriding the font size variables.
@@ -18,13 +18,13 @@ $link-color: tools.$els-color-secondary-on-dark;
 $link-color-dark: tools.$els-color-extended-blue-2;
 
 $link-hover-color: tools.$els-color-primary;
-$link-hover-color-dark: pss-colors.$pss-color-primary;
+$link-hover-color-dark: colors.$pss-color-primary;
 
 $modal-background: tools.$els-color-n9;
 $modal-background-dark: tools.$els-color-n10;
 
 $modal-border: rgba(tools.$els-color-n9, .5);
-$modal-border-dark: rgba(pss-colors.$pss-color-n12, .5);
+$modal-border-dark: rgba(colors.$pss-color-n12, .5);
 
 $modal-header-text: tools.$els-color-n1;
 $modal-header-text-dark: tools.$els-color-n0;
@@ -33,7 +33,7 @@ $modal-over-limit-text: tools.$els-color-extended-orange-4;
 $modal-over-limit-text-dark: tools.$els-color-extended-orange-5;
 
 $modal-input-highlight: red;
-$modal-input-highlight-dark: pss-colors.$pss-color-warn;
+$modal-input-highlight-dark: colors.$pss-color-warn;
 
 $modal-input-color: tools.$els-color-n10;
 $modal-input-color-dark: tools.$els-color-n0;
@@ -43,7 +43,7 @@ $modal-input-background: tools.$els-color-n0;
 $modal-input-background-dark: tools.$els-color-n8;
 
 $modal-input-border: tools.$els-color-n10;
-$modal-input-border-dark: pss-colors.$pss-color-primary;
+$modal-input-border-dark: colors.$pss-color-primary;
 
 $submit-button-color: tools.$els-color-n10;
 $submit-button-color-dark: tools.$els-color-n0;
