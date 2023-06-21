@@ -1,6 +1,6 @@
 {
   "name": "@pss/pss-react-didyoufind",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "didyoufind",
   "main": "src/index.js",
   "scripts": {
